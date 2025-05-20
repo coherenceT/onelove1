@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>One Love Radio</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&display=swap" rel="stylesheet" />
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+    <link rel="stylesheet" href="css/style.css" />
+</head>
+
+<body>
+    <header>
+<div class="logo-container">
+    <img src="images/logo.png" alt="One Love Radio Logo" class="site-logo" />
+    
+</div>
+
+
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="events.html">Events</a></li>
+                <li><a href="gallery.html">Gallery</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero glass">
+            <h1>Welcome to One Love Radio</h1>
+            <p>Your home for great music and positive vibes.</p>
+        </section>
+<div class="grid">
+    <!-- Block 1: Show Highlight -->
+    <div class="block">
+        <img src="show1.jpg" alt="One Love Top 10">
+        <div class="block-content">
+            <h3>One Love Top 10</h3>
+            <p>Every Friday 6PM - 8PM. Join DJ Blaze as he counts down the hottest tracks.</p>
+            <a href="#" class="cta">Listen Now</a>
+        </div>
+    </div>
+
+    <!-- Block 2: Interactive Prompt -->
+    <div class="block">
+        <img src="vote.jpg" alt="Vote for the vibe">
+        <div class="block-content">
+            <h3>Decide the Vibe!</h3>
+            <p>Vote for the next Friday night playlist. Your choice sets the mood.</p>
+            <a href="#" class="cta">Vote Now</a>
+        </div>
+    </div>
+
+    <!-- Block 3: Personality Feature -->
+    <div class="block">
+        <img src="team.jpg" alt="Meet the Team">
+        <div class="block-content">
+            <h3>Meet the DJs</h3>
+            <p>Get to know our radio hosts. Passionate, fun, and ready to rock your day.</p>
+            <a href="#" class="cta">View Profiles</a>
+        </div>
+    </div>
+
+    <!-- Block 4: Weekly Contest -->
+    <div class="block">
+        <img src="contest.jpg" alt="Erop of Eronder">
+        <div class="block-content">
+            <h3>Hot or Not?</h3>
+            <p>Each week we highlight a new track. Love it or leave it? You decide!</p>
+            <a href="#" class="cta">Vote Hot or Not</a>
+        </div>
+    </div>
+</div>
+        <section class="player glass">
+            <div class="live-header">
+                <span class="live-indicator"><i class="fas fa-circle"></i> Live Now</span>
+                <h2>One Love Radio</h2>
+            </div>
+            <p class="now-playing">Now Playing: <span id="track-title">Loading...</span></p>
+        
+            <div class="audio-controls">
+                <audio id="radio-player" controls autoplay>
+                    <source src="your-stream-url.mp3" type="audio/mpeg" />
+                    Your browser does not support the audio element.
+                </audio>
+                <div class="visualizer">
+                    <span></span><span></span><span></span><span></span><span></span>
+                </div>
+            </div>
+        
+            <div class="tune-in-prompt">
+                <p>🔥 Feel the vibes 24/7 – Tune in and let the rhythm move you!</p>
+            </div>
+        </section>
+
+        <section class="song-request">
+            <h2>Request a Song</h2>
+            <form action="#" method="post">
+                <input type="text" placeholder="Your Name" required />
+                <input type="text" placeholder="Song Title" required />
+                <input type="text" placeholder="Artist" required />
+                <button type="submit">Send Request</button>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 One Love Radio. All rights reserved.</p>
+        <div class="socials">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+        </div>
+    </footer>
+</body>
+
+</html>
