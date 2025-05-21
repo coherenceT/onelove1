@@ -39,7 +39,7 @@
 <div class="grid">
     <!-- Block 1: Show Highlight -->
     <div class="block">
-        <img src="show1.jpg" alt="One Love Top 10">
+        <img src="images/top10.png" alt="One Love Top 10">
         <div class="block-content">
             <h3>One Love Top 10</h3>
             <p>Every Friday 6PM - 8PM. Join DJ Blaze as he counts down the hottest tracks.</p>
@@ -49,7 +49,7 @@
 
     <!-- Block 2: Interactive Prompt -->
     <div class="block">
-        <img src="vote.jpg" alt="Vote for the vibe">
+        <img src="images/vote.jpg" alt="Vote for the vibe">
         <div class="block-content">
             <h3>Decide the Vibe!</h3>
             <p>Vote for the next Friday night playlist. Your choice sets the mood.</p>
@@ -58,18 +58,110 @@
     </div>
 
     <!-- Block 3: Personality Feature -->
-    <div class="block">
-        <img src="team.jpg" alt="Meet the Team">
-        <div class="block-content">
-            <h3>Meet the DJs</h3>
-            <p>Get to know our radio hosts. Passionate, fun, and ready to rock your day.</p>
-            <a href="#" class="cta">View Profiles</a>
+  <div class="block">
+    <!-- Slideshow Container -->
+    <div class="slideshow-container">
+        <img class="slide active" src="images/dj1.jpg" alt="DJ 1">
+        <img class="slide" src="images/dj2.jpg" alt="DJ 2">
+        <img class="slide" src="images/dj3.jpg" alt="DJ 3">
+        
+        <!-- Navigation Dots -->
+        <div class="slideshow-dots">
+            <span class="dot active" onclick="currentSlide(1)"></span>
+            <span class="dot" onclick="currentSlide(2)"></span>
+            <span class="dot" onclick="currentSlide(3)"></span>
         </div>
     </div>
+    
+    <div class="block-content">
+        <h3>Meet the DJs</h3>
+        <p>Get to know our radio hosts. Passionate, fun, and ready to rock your day.</p>
+        <a href="#" class="cta">View Profiles</a>
+    </div>
+</div>
+
+<style>
+    .slideshow-container {
+        position: relative;
+        max-width: 100%;
+        overflow: hidden;
+    }
+    
+    .slide {
+        display: none;
+        width: 100%;
+        transition: opacity 0.5s ease;
+    }
+    
+    .slide.active {
+        display: block;
+    }
+    
+    .slideshow-dots {
+        text-align: center;
+        padding: 10px;
+        position: absolute;
+        bottom: 10px;
+        width: 100%;
+    }
+    
+    .dot {
+        cursor: pointer;
+        height: 12px;
+        width: 12px;
+        margin: 0 4px;
+        background-color: rgba(255,255,255,0.5);
+        border-radius: 50%;
+        display: inline-block;
+        transition: background-color 0.3s ease;
+    }
+    
+    .dot.active, .dot:hover {
+        background-color: white;
+    }
+</style>
+
+<script>
+    let slideIndex = 1;
+    showSlides(slideIndex);
+    
+    // Auto-advance slides every 3 seconds
+    setInterval(() => {
+        plusSlides(1);
+    }, 3000);
+    
+    function plusSlides(n) {
+        showSlides(slideIndex += n);
+    }
+    
+    function currentSlide(n) {
+        showSlides(slideIndex = n);
+    }
+    
+    function showSlides(n) {
+        let i;
+        const slides = document.getElementsByClassName("slide");
+        const dots = document.getElementsByClassName("dot");
+        
+        if (n > slides.length) { slideIndex = 1; }
+        if (n < 1) { slideIndex = slides.length; }
+        
+        for (i = 0; i < slides.length; i++) {
+            slides[i].classList.remove("active");
+        }
+        
+        for (i = 0; i < dots.length; i++) {
+            dots[i].classList.remove("active");
+        }
+        
+        slides[slideIndex-1].classList.add("active");
+        dots[slideIndex-1].classList.add("active");
+    }
+</script>
 
     <!-- Block 4: Weekly Contest -->
     <div class="block">
-        <img src="contest.jpg" alt="Erop of Eronder">
+        <img src="images/hotornot.png" alt="Erop of Eronder">
         <div class="block-content">
             <h3>Hot or Not?</h3>
             <p>Each week we highlight a new track. Love it or leave it? You decide!</p>
@@ -86,7 +178,7 @@
         
             <div class="audio-controls">
                 <audio id="radio-player" controls autoplay>
-                    <source src="your-stream-url.mp3" type="audio/mpeg" />
+                    <source src="https://mytuner-radio.com/radio/263-hit-radio-507829/" type="audio/mpeg" />
                     Your browser does not support the audio element.
                 </audio>
                 <div class="visualizer">
@@ -98,6 +190,117 @@
                 <p>🔥 Feel the vibes 24/7 – Tune in and let the rhythm move you!</p>
             </div>
         </section>
+
+        <!-- Add below .player section -->
+        <section class="live-show glass">
+            <div class="live-show-content">
+                <img src="images/dj1.jpg" alt="DJ Jamza" class="live-host-img">
+                <div>
+                    <h3>🎙️ On Air Now: DJ Jamza</h3>
+                    <p>Playing the freshest tracks every Monday & Saturday from 6PM to 9PM GMT.</p>
+                    <a href="#" class="live-btn">Listen Live</a>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Weekly Schedule -->
+    <!-- Weekly Schedule - Dropdown Version -->
+    <section class="weekly-schedule glass">
+        <details>
+            <summary>
+                <h2>📅 Weekly Show Schedule (Click to Expand)</h2>
+            </summary>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Day</th>
+                        <th>Show</th>
+                        <th>Host</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Monday</td>
+                        <td>DJ Jamza</td>
+                        <td>DJ Jamza</td>
+                    </tr>
+                    <tr>
+                        <td>Tuesday</td>
+                        <td>263 Connection</td>
+                        <td>-</td>
+                    </tr>
+                    <tr>
+                        <td>Wednesday</td>
+                        <td>Nhubu Diaries</td>
+                        <td>Mr Chitatu</td>
+                    </tr>
+                    <tr>
+                        <td>Thursday</td>
+                        <td>Thirsty Thursday</td>
+                        <td>Mr Tin Tin</td>
+                    </tr>
+                    <tr>
+                        <td>Friday</td>
+                        <td>Weekend Crossover</td>
+                        <td>-</td>
+                    </tr>
+                    <tr>
+                        <td>Saturday</td>
+                        <td>Music Mix</td>
+                        <td>DJ Jamza</td>
+                    </tr>
+                    <tr>
+                        <td>Sunday</td>
+                        <td>Sunday Worship</td>
+                        <td>Steve Ka Sithole</td>
+                    </tr>
+                </tbody>
+            </table>
+        </details>
+    </section>
+        <!-- Listening Options -->
+        <section class="listen-links glass">
+            <h2>📡 Listen to One Love Radio</h2>
+            <ul>
+                <li><a href="https://www.liveradio.ie/stations/263-hit-radio" target="_blank">LiveRadio.ie</a></li>
+                <li><a href="https://theonestopradio.com/radio/zw-263-hit-radio" target="_blank">TheOneStopRadio</a></li>
+                <li><a href="https://mytuner-radio.com/radio/263-hit-radio-507829/" target="_blank">MyTuner Radio</a></li>
+                <li><a href="https://onlineradiobox.com/uk/263hit/?cs=uk.263hit&played=1" target="_blank">OnlineRadioBox</a>
+                </li>
+            </ul>
+        </section>
+        
+        <!-- Meet the DJs -->
+    <section class="meet-djs glass">
+        <h2>🎧 Meet the DJs</h2>
+        <div class="dj-grid">
+            <div class="dj-card">
+                <img src="images/dj1.jpg" alt="DJ Jamza">
+                <h3>DJ Jamza</h3>
+                <p>Monday & Saturday</p>
+            </div>
+            <div class="dj-card">
+                <img src="images/dj3.jpg" alt="Steve Ka Sithole">
+                <h3>Steve Ka Sithole</h3>
+                <p>Wednesday</p>
+            </div>
+            <div class="dj-card">
+                <img src="images/dj2.jpg" alt="Munya Thela">
+                <h3>Munya Thela</h3>
+                <p>Thursday</p>
+            </div>
+        </div>
+    </section>
+
+        
+        <!-- WhatsApp Community -->
+     <section class="whatsapp-join glass">
+    <h2>💬 Join Our WhatsApp Community</h2>
+    <a href="https://chat.whatsapp.com/KnwSpDRRsRG3JqqCPfanB1" class="whatsapp-btn" target="_blank">
+        <img src="images/whatsapp-logo.png" alt="WhatsApp" class="whatsapp-logo">
+        Join Now
+    </a>
+</section>
 
         <section class="song-request">
             <h2>Request a Song</h2>
@@ -118,6 +321,25 @@
             <a href="#"><i class="fab fa-instagram"></i></a>
         </div>
     </footer>
+    <script>
+        let lastScrollTop = 0;
+        const header = document.querySelector("header");
+
+        window.addEventListener("scroll", function () {
+            let currentScroll = window.pageYOffset || document.documentElement.scrollTop;
+
+            if (currentScroll > lastScrollTop) {
+                // scrolling down
+                header.style.transform = "translateY(-100%)";
+            } else {
+                // scrolling up
+                header.style.transform = "translateY(0)";
+            }
+
+            lastScrollTop = currentScroll <= 0 ? 0 : currentScroll;
+        });
+    </script>
+
 </body>
 
 </html>
