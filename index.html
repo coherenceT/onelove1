@@ -306,16 +306,32 @@
     </a>
 </section>
 
-        <section class="song-request">
-            <h2>Request a Song</h2>
-            <form action="#" method="post">
-                <input type="text" placeholder="Your Name" required />
-                <input type="text" placeholder="Song Title" required />
-                <input type="text" placeholder="Artist" required />
-                <button type="submit">Send Request</button>
-            </form>
-        </section>
-    </main>
+<section class="song-request">
+    <h2>Request a Song</h2>
+    <form id="whatsappForm">
+        <input type="text" id="name" placeholder="Your Name" required />
+        <input type="text" id="title" placeholder="Song Title" required />
+        <input type="text" id="artist" placeholder="Artist" required />
+        <button type="submit">Send Request</button>
+    </form>
+
+    <script>
+        document.getElementById("whatsappForm").addEventListener("submit", function (e) {
+            e.preventDefault();
+
+            const name = document.getElementById("name").value.trim();
+            const title = document.getElementById("title").value.trim();
+            const artist = document.getElementById("artist").value.trim();
+
+            const message = `🎵 *New Song Request* 🎵\n\n👤 Name: ${name}\n🎶 Song: ${title}\n🎤 Artist: ${artist}`;
+            const encodedMessage = encodeURIComponent(message);
+            const whatsappURL = `https://wa.me/447850930017?text=${encodedMessage}`;
+
+            window.open(whatsappURL, "_blank");
+        });
+    </script>
+</section>
+
 
     <footer>
         <p>&copy; 2025 One Love Radio. All rights reserved.</p>
