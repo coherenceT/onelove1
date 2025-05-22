@@ -14,40 +14,37 @@
 </head>
 
 <body>
-    <!-- Player moved to top -->
-    <section class="player glass">
-        <div class="live-header">
-            <span class="live-indicator"><i class="fas fa-circle"></i> Live Now</span>
-            <h2>One Love Radio</h2>
-        </div>
-        <p class="now-playing">Now Playing: <span id="track-title">Loading...</span></p>
 
-        <div class="audio-controls">
-            <audio id="radio-player" controls autoplay>
-                <source src="https://mytuner-radio.com/radio/263-hit-radio-507829/" type="audio/mpeg" />
-                Your browser does not support the audio element.
-            </audio>
-            <div class="visualizer">
-                <span></span><span></span><span></span><span></span><span></span>
+    <div class="live-wrapper">
+        <!-- Box 1: Player -->
+        <div class="box">
+            <div class="live-header">
+
+                <h2>One Love Radio</h2>
             </div>
-        </div>
-
-        <div class="tune-in-prompt">
+            <p>Now Playing: <span id="track-title">Loading...</span></p>
+            <div class="audio-controls">
+                <audio id="radio-player" controls autoplay>
+                    <source src="https://mytuner-radio.com/radio/263-hit-radio-507829/" type="audio/mpeg" />
+                    Your browser does not support the audio element.
+                </audio>
+                <div class="visualizer">
+                    <span></span><span></span><span></span><span></span><span></span>
+                </div>
+            </div>
             <p>🔥 Feel the vibes 24/7 – Tune in and let the rhythm move you!</p>
         </div>
-    </section>
 
-    <!-- DJ On Air Now also at the top -->
-    <section class="live-show glass">
-        <div class="live-show-content">
+        <!-- Box 2: DJ Info -->
+        <div class="box">
             <img src="images/dj1.jpg" alt="DJ Jamza" class="live-host-img">
-            <div>
-                <h3>🎙️ On Air Now: DJ Jamza</h3>
-                <p>Playing the freshest tracks every Monday & Saturday from 6PM to 9PM GMT.</p>
-                <a href="https://mytuner-radio.com/radio/263-hit-radio-507829/" class="live-btn">Listen Live</a>
-            </div>
+            <h3>🎙️ On Air Now: DJ Jamza</h3>
+            <p>Playing the freshest tracks every Monday & Saturday from 6PM to 9PM GMT.</p>
+            <a href="https://mytuner-radio.com/radio/263-hit-radio-507829/" class="live-btn">Listen Live</a>
         </div>
-    </section>
+    </div>
+</body>
+
 
     <!-- Header with logo and navigation -->
     <header>
@@ -58,7 +55,7 @@
         <nav>
             <ul>
                 <li><a href="index.html">Home</a></li>
-                <li><a href="events.html">Events</a></li>
+                <li><a href="events.html">Fanbase</a></li>
                 <li><a href="gallery.html">Gallery</a></li>
                 <li><a href="contact.html">Contact</a></li>
             </ul>
@@ -272,26 +269,32 @@
         </section>
         
         <!-- Meet the DJs -->
-    <section class="meet-djs glass">
-        <h2>🎧 Meet the DJs</h2>
-        <div class="dj-grid">
-            <div class="dj-card">
-                <img src="images/dj1.jpg" alt="DJ Jamza">
-                <h3>DJ Jamza</h3>
-                <p>Monday & Saturday</p>
-            </div>
-            <div class="dj-card">
-                <img src="images/dj3.jpg" alt="Steve Ka Sithole">
-                <h3>Steve Ka Sithole</h3>
-                <p>Wednesday</p>
-            </div>
-            <div class="dj-card">
-                <img src="images/dj2.jpg" alt="Munya Thela">
-                <h3>Munya Thela</h3>
-                <p>Thursday</p>
-            </div>
+<section class="meet-djs glass">
+    <h2>🎧 Meet the DJs</h2>
+    <div class="dj-grid">
+        <div class="dj-card">
+            <img src="images/dj1.jpg" alt="DJ Jamza">
+            <h3>DJ Jamza</h3>
+            <p>Monday & Saturday</p>
         </div>
-    </section>
+        <div class="dj-card">
+            <img src="images/dj3.jpg" alt="Steve Ka Sithole">
+            <h3>Steve Ka Sithole</h3>
+            <p>Wednesday</p>
+        </div>
+        <div class="dj-card">
+            <img src="images/dj2.jpg" alt="Munya Thela">
+            <h3>Munya Thela</h3>
+            <p>Thursday</p>
+        </div>
+    </div>
+
+    <div class="join-dj-cta">
+        <p>🎤 Would you also like to join us as a DJ?</p>
+        <a href="contact.html" class="join-btn">Join the Team</a>
+    </div>
+</section>
+
 
         
         <!-- WhatsApp Community -->

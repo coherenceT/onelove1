@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>One Love Radio</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&display=swap" rel="stylesheet" />
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+    <link rel="stylesheet" href="css/style.css" />
+</head>
+<header>
+    <div class="logo-container">
+        <img src="images/logo.png" alt="One Love Radio Logo" class="site-logo" />
+    </div>
+
+    <nav>
+        <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="events.html">Fanbase</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+</header>
+<section class="fanbase-section">
+    <h2>🎉 Meet Our Fanbase</h2>
+    <p>Our community is the heartbeat of our station. Here's what some of our fans have to say:</p>
+
+    <div class="fan-testimonials">
+        <div class="testimonial">
+            <img src="images/fan1.jpg" alt="Fan 1" />
+            <blockquote>
+                "Listening to 263 Hit Radio has become a daily ritual. The DJs feel like family!"
+            </blockquote>
+            <p>- Alex M., Durban</p>
+        </div>
+
+        <div class="testimonial">
+            <img src="images/fan2.jpg" alt="Fan 2" />
+            <blockquote>
+                "The music selection is always on point. Keeps me dancing all day!"
+            </blockquote>
+            <p>- Thandi N., Johannesburg</p>
+        </div>
+
+        <div class="testimonial">
+            <img src="images/fan3.jpg" alt="Fan 3" />
+            <blockquote>
+                "From sunrise to sunset, 263 Hit Radio keeps the good vibes flowing!"
+            </blockquote>
+            <p>- Brian T., Harare</p>
+        </div>
+    </div>
+</section>
+
+<section class="join-fanbase-section">
+    <h3>🤝 Want to Join Our Fanbase?</h3>
+    <p>Become part of our vibrant community and stay updated with the latest hits and events.</p>
+    <a href="contact.html" class="join-button">Join the Fanbase</a>
+
+        <div class="fanbase-benefits">
+            <div class="benefit-card">
+                <div class="benefit-icon">🎵</div>
+                <h3>Exclusive Content</h3>
+                <p>Get access to behind-the-scenes footage, unreleased tracks, and artist interviews.</p>
+            </div>
+        
+            <div class="benefit-card">
+                <div class="benefit-icon">🎟️</div>
+                <h3>Early Ticket Access</h3>
+                <p>Purchase tickets before they go on sale to the general public.</p>
+            </div>
+</section>
+
+<footer>
+    <p>&copy; 2025 One Love Radio. All rights reserved.</p>
+    <div class="socials">
+        <a href="#"><i class="fab fa-facebook-f"></i></a>
+        <a href="#"><i class="fab fa-twitter"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+    </div>
+</footer>
+<script>
+    let lastScrollTop = 0;
+    const header = document.querySelector("header");
+
+    window.addEventListener("scroll", function () {
+        let currentScroll = window.pageYOffset || document.documentElement.scrollTop;
+
+        if (currentScroll > lastScrollTop) {
+            // scrolling down
+            header.style.transform = "translateY(-100%)";
+        } else {
+            // scrolling up
+            header.style.transform = "translateY(0)";
+        }
+
+        lastScrollTop = currentScroll <= 0 ? 0 : currentScroll;
+    });
+</script>
+
+</body>
+
+</html>
