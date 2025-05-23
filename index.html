@@ -15,36 +15,55 @@
 
 <body>
 
+    <style>
+.live-wrapper {
+    display: flex;
+    gap: 2rem;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.live-btn {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 10px 20px;
+    background-color: #ff3c3c;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background 0.3s ease;
+}
+
+.live-btn:hover {
+    background-color: #e13434;
+}
+    </style>
+    
     <div class="live-wrapper">
         <!-- Box 1: Player -->
-        <div class="box">
-            <div class="live-header">
-
-                <h2>One Love Radio</h2>
-            </div>
-            <p>Now Playing: <span id="track-title">Loading...</span></p>
-            <div class="audio-controls">
-                <audio id="radio-player" controls autoplay>
-                    <source src="https://mytuner-radio.com/radio/263-hit-radio-507829/" type="audio/mpeg" />
-                    Your browser does not support the audio element.
-                </audio>
-                <div class="visualizer">
-                    <span></span><span></span><span></span><span></span><span></span>
+        <a href="https://mytuner-radio.com/radio/263-hit-radio-507829/" target="_blank" style="text-decoration: none; color: inherit; flex: 1;">
+            <div class="box" style="cursor: pointer;">
+                <div class="live-header">
+                    <h2>One Love Radio</h2>
                 </div>
+                <p>Now Playing: <span id="track-title">Click to Listen</span></p>
+                <div class="audio-controls">
+                    <div class="visualizer">
+                        <span></span><span></span><span></span><span></span><span></span>
+                    </div>
+                </div>
+                <p>🔥 Feel the vibes 24/7 – Tune in and let the rhythm move you!</p>
             </div>
-            <p>🔥 Feel the vibes 24/7 – Tune in and let the rhythm move you!</p>
-        </div>
-
+        </a>
+    
         <!-- Box 2: DJ Info -->
-        <div class="box">
+        <div class="box" style="flex: 1;">
             <img src="images/dj1.jpg" alt="DJ Jamza" class="live-host-img">
             <h3>🎙️ On Air Now: DJ Jamza</h3>
             <p>Playing the freshest tracks every Monday & Saturday from 6PM to 9PM GMT.</p>
             <a href="https://mytuner-radio.com/radio/263-hit-radio-507829/" class="live-btn">Listen Live</a>
         </div>
     </div>
-</body>
-
 
     <!-- Header with logo and navigation -->
     <header>
