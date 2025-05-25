@@ -41,41 +41,44 @@
     
 <body style="margin-top: 80px;"> <!-- to avoid content hidden behind fixed header -->
     <header id="live-header" style="
-    position: fixed;
-    top: 0; left: 0; right: 0;
-    background: black;
-    color: white;
-    display: flex;
-    align-items: center;
-    padding: 10px 20px;
-    gap: 15px;
-    z-index: 9999;
-    height: 60px;
-    box-sizing: border-box;
-    font-family: sans-serif;
-  ">
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      background: transparent;
+      color: white;
+      display: flex;
+      align-items: center;
+      padding: 10px 20px;
+      gap: 20px;
+      z-index: 9999;
+      height: 60px;
+      box-sizing: border-box;
+      font-family: sans-serif;
+      justify-content: space-between;
+    ">
+
         <!-- DJ Picture (smaller) -->
         <div style="width: 50px; height: 50px; border-radius: 5px; overflow: hidden; flex-shrink: 0;">
             <img src="images/dj1.jpg" alt="DJ Jamza" style="width: 100%; height: 100%; object-fit: cover;">
         </div>
 
         <!-- Radio Info text -->
-        <div style="flex-grow: 1; font-size: 14px; line-height: 1.2;">
+        <div style="flex-grow: 1; font-size: 14px; line-height: 1.2; padding: 0 15px;">
             <div style="font-weight: bold; font-size: 16px; color: #E31937;">263 HIT RADIO</div>
             <div>Now Playing: <span id="track-title" style="font-weight: bold;">Zimbabwe's Hottest Hits</span></div>
         </div>
 
-        <!-- Listen Button -->
+        <!-- Play/Pause Button -->
         <button id="listenBtn" style="
       background: #E31937;
       border: none;
       border-radius: 5px;
       color: white;
-      padding: 8px 12px;
+      padding: 8px 14px;
       cursor: pointer;
       font-weight: bold;
       font-size: 14px;
       white-space: nowrap;
+      min-width: 100px;
     ">
             LISTEN LIVE NOW
         </button>
@@ -89,21 +92,24 @@
         const player = document.getElementById('radioPlayer');
 
         listenBtn.addEventListener('click', () => {
-            player.play()
-                .then(() => {
-                    listenBtn.textContent = "Playing...";
-                    listenBtn.disabled = true;
-                })
-                .catch(err => {
-                    console.error('Playback failed:', err);
-                    alert('Playback failed. Please try again.');
-                });
+            if (player.paused) {
+                player.play()
+                    .then(() => {
+                        listenBtn.textContent = "PAUSE";
+                    })
+                    .catch(err => {
+                        console.error('Playback failed:', err);
+                        alert('Playback failed. Please try again.');
+                    });
+            } else {
+                player.pause();
+                listenBtn.textContent = "LISTEN LIVE NOW";
+            }
         });
     </script>
 
-    <!-- Your page content goes here, and it won't be hidden behind the fixed header due to margin-top on body -->
+    <!-- Your page content goes here -->
 </body>
-
 
 
     <!-- Header with logo and navigation -->
