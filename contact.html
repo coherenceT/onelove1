@@ -12,6 +12,135 @@
 
     <link rel="stylesheet" href="css/style.css" />
 </head>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>One Love Radio</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <link rel="stylesheet" href="css/style.css" />
+
+    <style>
+        body {
+            margin-top: 80px;
+            font-family: 'Orbitron', sans-serif;
+        }
+
+        #live-header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: transparent;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 10px 20px;
+            z-index: 9999;
+            height: 80px;
+            box-sizing: border-box;
+        }
+
+        .header-content {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .dj-image {
+            width: 60px;
+            height: 60px;
+            border-radius: 5px;
+            overflow: hidden;
+            flex-shrink: 0;
+        }
+
+        .dj-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .radio-info {
+            text-align: center;
+            font-size: 14px;
+            line-height: 1.2;
+        }
+
+        .radio-info .station-name {
+            font-weight: bold;
+            font-size: 16px;
+            color: #E31937;
+        }
+
+        #listenBtn {
+            background: #E31937;
+            border: none;
+            border-radius: 5px;
+            color: white;
+            padding: 8px 14px;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 14px;
+            white-space: nowrap;
+            min-width: 120px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header id="live-header">
+        <div class="header-content">
+            <!-- DJ Picture -->
+            <div class="dj-image">
+                <img src="images/dj1.jpg" alt="DJ Jamza">
+            </div>
+
+            <!-- Radio Info -->
+            <div class="radio-info">
+                <div class="station-name">263 HIT RADIO</div>
+                <div>Now Playing: <span id="track-title">Zimbabwe's Hottest Hits</span></div>
+            </div>
+
+            <!-- Play/Pause Button -->
+            <button id="listenBtn">LISTEN LIVE NOW</button>
+
+            <!-- Hidden audio player -->
+            <audio id="radioPlayer" src="https://altair.streamerr.co/8180/stream" preload="none"></audio>
+        </div>
+    </header>
+
+    <script>
+        const listenBtn = document.getElementById('listenBtn');
+        const player = document.getElementById('radioPlayer');
+
+        listenBtn.addEventListener('click', () => {
+            if (player.paused) {
+                player.play()
+                    .then(() => {
+                        listenBtn.textContent = "PAUSE";
+                    })
+                    .catch(err => {
+                        console.error('Playback failed:', err);
+                        alert('Playback failed. Please try again.');
+                    });
+            } else {
+                player.pause();
+                listenBtn.textContent = "LISTEN LIVE NOW";
+            }
+        });
+    </script>
+
+    <!-- Your page content goes here -->
+
+</body>
+
 <header>
     <div class="logo-container">
         <img src="images/logo.png" alt="One Love Radio Logo" class="site-logo" />

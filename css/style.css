@@ -10,9 +10,8 @@ body {
 }
 
 /* Completely transparent header with scroll behavior */
-header {
+hheader {
     background-color: transparent;
-    /* Changed to fully transparent */
     padding: 20px;
     display: flex;
     justify-content: space-between;
@@ -23,6 +22,9 @@ header {
     right: 0;
     z-index: 999;
     transition: all 0.3s ease;
+
+    pointer-events: auto;
+    /* <-- Ensures header is clickable even when transparent */
 }
 
 /* Logo container for layout */
