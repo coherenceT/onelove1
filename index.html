@@ -9,76 +9,88 @@
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
     <link rel="stylesheet" href="css/style.css" />
-
-    <style>
-        body {
-            margin-top: 80px;
-            font-family: 'Orbitron', sans-serif;
-        }
-
-        #live-header {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            background: transparent;
-            color: white;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 10px 20px;
-            z-index: 9999;
-            height: 80px;
-            box-sizing: border-box;
-        }
-
-        .header-content {
-            display: flex;
-            align-items: center;
-            gap: 20px;
-        }
-
-        .dj-image {
-            width: 60px;
-            height: 60px;
-            border-radius: 5px;
-            overflow: hidden;
-            flex-shrink: 0;
-        }
-
-        .dj-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .radio-info {
-            text-align: center;
-            font-size: 14px;
-            line-height: 1.2;
-        }
-
-        .radio-info .station-name {
-            font-weight: bold;
-            font-size: 16px;
-            color: #E31937;
-        }
-
-        #listenBtn {
-            background: #E31937;
-            border: none;
-            border-radius: 5px;
-            color: white;
-            padding: 8px 14px;
-            cursor: pointer;
-            font-weight: bold;
-            font-size: 14px;
-            white-space: nowrap;
-            min-width: 120px;
-        }
-    </style>
 </head>
+<style>
+    body {
+        margin: 0;
+        font-family: 'Orbitron', sans-serif;
+        background-color: #000;
+        background-image: url('images/microphone.png');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        color: #fff;
+    }
 
+    header#live-header {
+        background: #111;
+        padding: 40px 20px;
+        border-bottom: 4px solid #E31937;
+        border-bottom-left-radius: 30px;
+        border-bottom-right-radius: 30px;
+        text-align: center;
+    }
+
+    .header-content {
+        max-width: 500px;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+    }
+
+    .dj-image {
+        width: 160px;
+        height: 160px;
+        background-color: #E31937;
+        border-radius: 50%;
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 0 18px rgba(227, 25, 55, 0.6);
+    }
+
+    .dj-image img {
+        width: 150px;
+        height: 150px;
+        border-radius: 50%;
+        object-fit: cover;
+    }
+
+    .radio-info {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+        font-size: 18px;
+        line-height: 1.4;
+    }
+
+    .station-name {
+        font-size: 24px;
+        font-weight: bold;
+        color: #E31937;
+    }
+
+    #listenBtn {
+        background: #E31937;
+        color: #fff;
+        padding: 10px 20px;
+        font-weight: bold;
+        border-radius: 8px;
+        text-decoration: none;
+        border: none;
+        font-size: 16px;
+        transition: background 0.3s ease;
+        cursor: pointer;
+    }
+
+    #listenBtn:hover {
+        background: #fff;
+        color: #E31937;
+    }
+</style>
 <body>
 
     <header id="live-header">
@@ -128,164 +140,169 @@
 </body>
 
 
-    <!-- Header with logo and navigation -->
-    <header>
-        <div class="logo-container">
-            <img src="images/logo.png" alt="One Love Radio Logo" class="site-logo" />
-        </div>
-
-        <nav>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="events.html">Events</a></li>
-                <li><a href="gallery.html">Fanbase</a></li>
-                <li><a href="contact.html">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
-
-    <main>
-        <section class="hero glass">
-            <h1>Welcome to One Love Radio</h1>
-            <p>Your home for great music and positive vibes.</p>
-        </section>
-<div class="grid">
-    <!-- Block 1: Show Highlight -->
-    <div class="block">
-        <img src="images/top10.png" alt="One Love Top 10">
-        <div class="block-content">
-            <h3>One Love Top 10</h3>
-            <p>Every Friday 6PM - 8PM. Join DJ Blaze as he counts down the hottest tracks.</p>
-            <a href="#" class="cta">Listen Now</a>
-        </div>
+<!-- Header with logo and navigation -->
+<header>
+    <div class="logo-container">
+        <img src="images/logo.png" alt="One Love Radio Logo" class="site-logo" />
     </div>
+
+    <nav>
+        <ul>
+
+            <li><a href="events.html">Events</a></li>
+            <li><a href="gallery.html">Fanbase</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+</header>
+
+<main>
+    <section class="hero glass">
+        <h1>Welcome to One Love Radio</h1>
+        <p>Your home for great music and positive vibes.</p>
+    </section>
+    <div class="grid">
+        <!-- Block 1: Show Highlight -->
+        <div class="block">
+            <img src="images/top10.png" alt="One Love Top 10">
+            <div class="block-content">
+                <h3>One Love Top 10</h3>
+                <p>Every Friday 6PM - 8PM. Join DJ Blaze as he counts down the hottest tracks.</p>
+                <a href="#" class="cta">Listen Now</a>
+            </div>
+        </div>
 
     <!-- Block 2: Interactive Prompt -->
     <div class="block">
-        <img src="images/vote.jpg" alt="Vote for the vibe">
+        <img src="images/event.jpg" alt="Upcoming Events">
         <div class="block-content">
             <h3>Decide the Vibe!</h3>
-            <p>Vote for the next Friday night playlist. Your choice sets the mood.</p>
-            <a href="#" class="cta">Vote Now</a>
+            <p>Want your favorite tracks on the air? Check out upcoming events and cast your vote!</p>
+            <a href="events.html" class="cta">🎉 Go to Events</a>
         </div>
     </div>
 
-    <!-- Block 3: Personality Feature -->
-  <div class="block">
-    <!-- Slideshow Container -->
-    <div class="slideshow-container">
-        <img class="slide active" src="images/dj1.jpg" alt="DJ 1">
-        <img class="slide" src="images/dj2.jpg" alt="DJ 2">
-        <img class="slide" src="images/dj3.jpg" alt="DJ 3">
-        <img class="slide" src="images/dj4.jpg" alt="DJ 4">
+        <!-- Block 3: Personality Feature -->
+        <div class="block">
+            <!-- Slideshow Container -->
+            <div class="slideshow-container">
+                <img class="slide active" src="images/dj1.jpg" alt="DJ 1">
+                <img class="slide" src="images/dj2.jpg" alt="DJ 2">
+                <img class="slide" src="images/dj3.jpg" alt="DJ 3">
+                <img class="slide" src="images/dj4.jpg" alt="DJ 4">
+                <img class="slide" src="images/dj5.jpg" alt="DJ 4">
 
-        
-        <!-- Navigation Dots -->
-        <div class="slideshow-dots">
-            <span class="dot active" onclick="currentSlide(1)"></span>
-            <span class="dot" onclick="currentSlide(2)"></span>
-            <span class="dot" onclick="currentSlide(3)"></span>
+
+
+                <!-- Navigation Dots -->
+                <div class="slideshow-dots">
+                    <span class="dot active" onclick="currentSlide(1)"></span>
+                    <span class="dot" onclick="currentSlide(2)"></span>
+                    <span class="dot" onclick="currentSlide(3)"></span>
+                </div>
+            </div>
+
+            <div class="block-content">
+                <h3>Meet the DJs</h3>
+                <p>Get to know our radio hosts. Passionate, fun, and ready to rock your day.</p>
+                <a href="#" class="cta">View Profiles</a>
+            </div>
+        </div>
+
+        <style>
+            .slideshow-container {
+                position: relative;
+                max-width: 100%;
+                overflow: hidden;
+            }
+
+            .slide {
+                display: none;
+                width: 100%;
+                transition: opacity 0.5s ease;
+            }
+
+            .slide.active {
+                display: block;
+            }
+
+            .slideshow-dots {
+                text-align: center;
+                padding: 10px;
+                position: absolute;
+                bottom: 10px;
+                width: 100%;
+            }
+
+            .dot {
+                cursor: pointer;
+                height: 12px;
+                width: 12px;
+                margin: 0 4px;
+                background-color: rgba(255, 255, 255, 0.5);
+                border-radius: 50%;
+                display: inline-block;
+                transition: background-color 0.3s ease;
+            }
+
+            .dot.active,
+            .dot:hover {
+                background-color: white;
+            }
+        </style>
+
+        <script>
+            let slideIndex = 1;
+            showSlides(slideIndex);
+
+            // Auto-advance slides every 3 seconds
+            setInterval(() => {
+                plusSlides(1);
+            }, 3000);
+
+            function plusSlides(n) {
+                showSlides(slideIndex += n);
+            }
+
+            function currentSlide(n) {
+                showSlides(slideIndex = n);
+            }
+
+            function showSlides(n) {
+                let i;
+                const slides = document.getElementsByClassName("slide");
+                const dots = document.getElementsByClassName("dot");
+
+                if (n > slides.length) { slideIndex = 1; }
+                if (n < 1) { slideIndex = slides.length; }
+
+                for (i = 0; i < slides.length; i++) {
+                    slides[i].classList.remove("active");
+                }
+
+                for (i = 0; i < dots.length; i++) {
+                    dots[i].classList.remove("active");
+                }
+
+                slides[slideIndex - 1].classList.add("active");
+                dots[slideIndex - 1].classList.add("active");
+            }
+        </script>
+
+        <!-- Block 4: Weekly Contest -->
+        <div class="block">
+            <img src="images/hotornot.png" alt="Erop of Eronder">
+            <div class="block-content">
+                <h3>Hot or Not?</h3>
+                <p>Each week we highlight a new track. Love it or leave it? You decide!</p>
+                <a href="#" class="cta">Vote Hot or Not</a>
+            </div>
         </div>
     </div>
-    
-    <div class="block-content">
-        <h3>Meet the DJs</h3>
-        <p>Get to know our radio hosts. Passionate, fun, and ready to rock your day.</p>
-        <a href="#" class="cta">View Profiles</a>
-    </div>
-</div>
 
-<style>
-    .slideshow-container {
-        position: relative;
-        max-width: 100%;
-        overflow: hidden;
-    }
-    
-    .slide {
-        display: none;
-        width: 100%;
-        transition: opacity 0.5s ease;
-    }
-    
-    .slide.active {
-        display: block;
-    }
-    
-    .slideshow-dots {
-        text-align: center;
-        padding: 10px;
-        position: absolute;
-        bottom: 10px;
-        width: 100%;
-    }
-    
-    .dot {
-        cursor: pointer;
-        height: 12px;
-        width: 12px;
-        margin: 0 4px;
-        background-color: rgba(255,255,255,0.5);
-        border-radius: 50%;
-        display: inline-block;
-        transition: background-color 0.3s ease;
-    }
-    
-    .dot.active, .dot:hover {
-        background-color: white;
-    }
-</style>
 
-<script>
-    let slideIndex = 1;
-    showSlides(slideIndex);
-    
-    // Auto-advance slides every 3 seconds
-    setInterval(() => {
-        plusSlides(1);
-    }, 3000);
-    
-    function plusSlides(n) {
-        showSlides(slideIndex += n);
-    }
-    
-    function currentSlide(n) {
-        showSlides(slideIndex = n);
-    }
-    
-    function showSlides(n) {
-        let i;
-        const slides = document.getElementsByClassName("slide");
-        const dots = document.getElementsByClassName("dot");
-        
-        if (n > slides.length) { slideIndex = 1; }
-        if (n < 1) { slideIndex = slides.length; }
-        
-        for (i = 0; i < slides.length; i++) {
-            slides[i].classList.remove("active");
-        }
-        
-        for (i = 0; i < dots.length; i++) {
-            dots[i].classList.remove("active");
-        }
-        
-        slides[slideIndex-1].classList.add("active");
-        dots[slideIndex-1].classList.add("active");
-    }
-</script>
 
-    <!-- Block 4: Weekly Contest -->
-    <div class="block">
-        <img src="images/hotornot.png" alt="Erop of Eronder">
-        <div class="block-content">
-            <h3>Hot or Not?</h3>
-            <p>Each week we highlight a new track. Love it or leave it? You decide!</p>
-            <a href="#" class="cta">Vote Hot or Not</a>
-        </div>
-    </div>
-</div>
-
-        <!-- Weekly Schedule -->
+    <!-- Weekly Schedule -->
     <!-- Weekly Schedule - Dropdown Version -->
     <section class="weekly-schedule glass">
         <details>
@@ -340,88 +357,95 @@
             </table>
         </details>
     </section>
-        <!-- Listening Options -->
-        <section class="listen-links glass">
-            <h2>📡 Listen to One Love Radio</h2>
-            <ul>
-                <li><a href="https://www.liveradio.ie/stations/263-hit-radio" target="_blank">LiveRadio.ie</a></li>
-                <li><a href="https://theonestopradio.com/radio/zw-263-hit-radio" target="_blank">TheOneStopRadio</a></li>
-                <li><a href="https://mytuner-radio.com/radio/263-hit-radio-507829/" target="_blank">MyTuner Radio</a></li>
-                <li><a href="https://onlineradiobox.com/uk/263hit/?cs=uk.263hit&played=1" target="_blank">OnlineRadioBox</a>
-                </li>
-            </ul>
-        </section>
-        
-        <!-- Meet the DJs -->
-<section class="meet-djs glass">
-    <h2>🎧 Meet the DJs</h2>
-    <div class="dj-grid">
-        <div class="dj-card">
-            <img src="images/dj1.jpg" alt="DJ Jamza">
-            <h3>DJ Jamza</h3>
-            <p>Monday & Saturday</p>
+    <!-- Listening Options -->
+    <section class="listen-links glass">
+        <h2>📡 Listen to One Love Radio</h2>
+        <ul>
+            <li><a href="https://www.liveradio.ie/stations/263-hit-radio" target="_blank">LiveRadio.ie</a></li>
+            <li><a href="https://theonestopradio.com/radio/zw-263-hit-radio" target="_blank">TheOneStopRadio</a></li>
+            <li><a href="https://mytuner-radio.com/radio/263-hit-radio-507829/" target="_blank">MyTuner Radio</a></li>
+            <li><a href="https://onlineradiobox.com/uk/263hit/?cs=uk.263hit&played=1" target="_blank">OnlineRadioBox</a>
+            </li>
+        </ul>
+    </section>
+
+    <!-- Meet the DJs -->
+    <section class="meet-djs glass">
+        <h2>🎧 Meet the DJs</h2>
+        <div class="dj-grid">
+            <div class="dj-card">
+                <img src="images/dj1.jpg" alt="DJ Jamza">
+                <h3>DJ Jamza</h3>
+                <p>Monday & Saturday</p>
+            </div>
+            <div class="dj-card">
+                <img src="images/dj3.jpg" alt="Steve Ka Sithole">
+                <h3>DJ Steve Ka Sithole</h3>
+                <p>Wednesday</p>
+            </div>
+            <div class="dj-card">
+                <img src="images/dj2.jpg" alt="Munya Thela">
+                <h3>DJ Bamdiki Munya wekwaThela</h3>
+                <p>Thursday</p>
+
+            </div>
+            <div class="dj-card">
+                <img src="images/dj4.jpg" alt="Munya Thela">
+                <h3>DJ Oliver Chigariro</h3>
+                <p>Sunday</p>
+            </div>
+
+            </div>
+            <div class="dj-card">
+                <img src="images/dj5.jpg" alt="Munya Thela">
+                <h3>DJ Parachute</h3>
+                <p>Thurday</p>
+            </div>
         </div>
-        <div class="dj-card">
-            <img src="images/dj3.jpg" alt="Steve Ka Sithole">
-            <h3>Steve Ka Sithole</h3>
-            <p>Wednesday</p>
         </div>
-        <div class="dj-card">
-            <img src="images/dj2.jpg" alt="Munya Thela">
-            <h3>Bamdiki Munya wekwaThela</h3>
-            <p>Thursday</p>
 
-                </div>
-                <div class="dj-card">
-                    <img src="images/dj4.jpg" alt="Munya Thela">
-                    <h3>DJ Oliver Chigariro</h3>
-                    <p>Sunday</p>
-                </div>
+        <div class="join-dj-cta">
+            <p>🎤 Would you also like to join us as a DJ?</p>
+            <a href="contact.html" class="join-btn">Join the Team</a>
         </div>
-    </div>
-
-    <div class="join-dj-cta">
-        <p>🎤 Would you also like to join us as a DJ?</p>
-        <a href="contact.html" class="join-btn">Join the Team</a>
-    </div>
-</section>
+    </section>
 
 
-        
-        <!-- WhatsApp Community -->
-     <section class="whatsapp-join glass">
-    <h2>💬 Join Our WhatsApp Community</h2>
-    <a href="https://chat.whatsapp.com/KnwSpDRRsRG3JqqCPfanB1" class="whatsapp-btn" target="_blank">
-        <img src="images/whatsapp-logo.png" alt="WhatsApp" class="whatsapp-logo">
-        Join Now
-    </a>
-</section>
 
-<section class="song-request">
-    <h2>Request a Song</h2>
-    <form id="whatsappForm">
-        <input type="text" id="name" placeholder="Your Name" required />
-        <input type="text" id="title" placeholder="Song Title" required />
-        <input type="text" id="artist" placeholder="Artist" required />
-        <button type="submit">Send Request</button>
-    </form>
+    <!-- WhatsApp Community -->
+    <section class="whatsapp-join glass">
+        <h2>💬 Join Our WhatsApp Community</h2>
+        <a href="https://chat.whatsapp.com/KnwSpDRRsRG3JqqCPfanB1" class="whatsapp-btn" target="_blank">
+            <img src="images/whatsapp-logo.png" alt="WhatsApp" class="whatsapp-logo">
+            Join Now
+        </a>
+    </section>
 
-    <script>
-        document.getElementById("whatsappForm").addEventListener("submit", function (e) {
-            e.preventDefault();
+    <section class="song-request">
+        <h2>Request a Song</h2>
+        <form id="whatsappForm">
+            <input type="text" id="name" placeholder="Your Name" required />
+            <input type="text" id="title" placeholder="Song Title" required />
+            <input type="text" id="artist" placeholder="Artist" required />
+            <button type="submit">Send Request</button>
+        </form>
 
-            const name = document.getElementById("name").value.trim();
-            const title = document.getElementById("title").value.trim();
-            const artist = document.getElementById("artist").value.trim();
+        <script>
+            document.getElementById("whatsappForm").addEventListener("submit", function (e) {
+                e.preventDefault();
 
-            const message = `🎵 *New Song Request* 🎵\n\n👤 Name: ${name}\n🎶 Song: ${title}\n🎤 Artist: ${artist}`;
-            const encodedMessage = encodeURIComponent(message);
-            const whatsappURL = `https://wa.me/447850930017?text=${encodedMessage}`;
+                const name = document.getElementById("name").value.trim();
+                const title = document.getElementById("title").value.trim();
+                const artist = document.getElementById("artist").value.trim();
 
-            window.open(whatsappURL, "_blank");
-        });
-    </script>
-</section>
+                const message = `🎵 *New Song Request* 🎵\n\n👤 Name: ${name}\n🎶 Song: ${title}\n🎤 Artist: ${artist}`;
+                const encodedMessage = encodeURIComponent(message);
+                const whatsappURL = `https://wa.me/447850930017?text=${encodedMessage}`;
+
+                window.open(whatsappURL, "_blank");
+            });
+        </script>
+    </section>
 
 
     <footer>
@@ -432,25 +456,7 @@
             <a href="#"><i class="fab fa-instagram"></i></a>
         </div>
     </footer>
-    <script>
-        let lastScrollTop = 0;
-        const header = document.querySelector("header");
+    </body>
 
-        window.addEventListener("scroll", function () {
-            let currentScroll = window.pageYOffset || document.documentElement.scrollTop;
-
-            if (currentScroll > lastScrollTop) {
-                // scrolling down
-                header.style.transform = "translateY(-100%)";
-            } else {
-                // scrolling up
-                header.style.transform = "translateY(0)";
-            }
-
-            lastScrollTop = currentScroll <= 0 ? 0 : currentScroll;
-        });
-    </script>
-
-</body>
 
 </html>
