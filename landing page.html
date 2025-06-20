@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>One Love FM - Launching Soon</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(to bottom, #000000, #8B0000);
+            color: white;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+        }
+
+        img {
+            max-width: 200px;
+            margin-top: 20px;
+        }
+
+        h1 {
+            font-size: 3em;
+            margin: 20px 0 10px;
+        }
+
+        #countdown {
+            font-size: 2em;
+            background: rgba(255, 0, 0, 0.2);
+            padding: 20px 40px;
+            border-radius: 15px;
+            border: 2px solid #ff0000;
+            box-shadow: 0 0 20px red;
+            margin-top: 20px;
+        }
+
+        /* Player Styles */
+        #live-header {
+            margin-top: 50px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid #ff0000;
+            padding: 20px;
+            border-radius: 15px;
+            width: 90%;
+            max-width: 600px;
+        }
+
+        .header-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .dj-image img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            border: 3px solid #ff0000;
+            object-fit: cover;
+        }
+
+        .radio-info {
+            margin-top: 10px;
+            font-size: 1.2em;
+        }
+
+        .station-name {
+            font-weight: bold;
+            font-size: 1.4em;
+            color: #FF4444;
+        }
+
+        #listenBtn {
+            margin-top: 15px;
+            padding: 12px 25px;
+            font-size: 1em;
+            color: white;
+            background-color: #c40000;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        #listenBtn:hover {
+            background-color: #ff0000;
+        }
+
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 2em;
+            }
+
+            #countdown {
+                font-size: 1.2em;
+                padding: 15px 25px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <img src="images/logo.png" alt="One Love FM Logo">
+    <h1>We're Going Live!</h1>
+    <p>Official Launch: <strong>26 July 2025</strong></p>
+    <div id="countdown"></div>
+
+    <!-- Player Section -->
+    <header id="live-header">
+        <div class="header-content">
+            <div class="dj-image">
+                <img src="images/dj1.jpg" alt="DJ Jamza">
+            </div>
+            <div class="radio-info">
+                <div class="station-name">263 HIT RADIO</div>
+                <div>Now Playing: <span id="track-title">Zimbabwe's Hottest Hits</span></div>
+            </div>
+            <button id="listenBtn">LISTEN LIVE NOW</button>
+            <audio id="radioPlayer" src="https://altair.streamerr.co/8180/stream" preload="none"></audio>
+        </div>
+    </header>
+
+    <script>
+        const launchDate = new Date("July 26, 2025 00:00:00").getTime();
+        const countdownEl = document.getElementById("countdown");
+
+        const timer = setInterval(() => {
+            const now = new Date().getTime();
+            const distance = launchDate - now;
+
+            if (distance < 0) {
+                clearInterval(timer);
+                countdownEl.innerHTML = "We Are Live!";
+                return;
+            }
+
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            countdownEl.innerHTML =
+                days + "d " + hours + "h " + minutes + "m " + seconds + "s ";
+        }, 1000);
+
+        const listenBtn = document.getElementById('listenBtn');
+        const player = document.getElementById('radioPlayer');
+
+        listenBtn.addEventListener('click', () => {
+            if (player.paused) {
+                player.play()
+                    .then(() => {
+                        listenBtn.textContent = "PAUSE";
+                    })
+                    .catch(err => {
+                        console.error('Playback failed:', err);
+                        alert('Playback failed. Please try again.');
+                    });
+            } else {
+                player.pause();
+                listenBtn.textContent = "LISTEN LIVE NOW";
+            }
+        });
+    </script>
+
+</body>
+
+</html>
