@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>One Love Radio - Updated Website</title>
+    <title>One Love Radio</title>
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <style>
@@ -106,22 +106,6 @@
             filter: drop-shadow(0 0 10px rgba(227, 25, 55, 0.7));
             animation: pulse 3s infinite;
         }
-
-        .dj-player-section {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 15px;
-            flex: 1;
-            min-width: 300px;
-            z-index: 2;
-            padding: 20px;
-            background: rgba(0, 0, 0, 0.5);
-            border-radius: 20px;
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(227, 25, 55, 0.3);
-        }
-
         .dj-image {
             width: 140px;
             height: 140px;
@@ -134,23 +118,8 @@
             border: 3px solid #fff;
             overflow: hidden;
             animation: float 6s ease-in-out infinite;
-            position: relative;
         }
         
-        .dj-name {
-            position: absolute;
-            bottom: -5px;
-            left: 0;
-            right: 0;
-            background: rgba(0, 0, 0, 0.8);
-            color: var(--gold);
-            font-weight: bold;
-            font-size: 14px;
-            padding: 5px;
-            text-align: center;
-            font-family: 'Orbitron', sans-serif;
-        }
-
         .dj-image img {
             width: 130px;
             height: 130px;
@@ -188,14 +157,6 @@
             color: var(--gold);
             font-weight: bold;
             font-style: italic;
-        }
-
-        .listen-container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 15px;
-            margin-top: 15px;
         }
 
         #listenBtn {
@@ -265,31 +226,117 @@
             width: 100%;
             accent-color: #E31937;
         }
-
-        /* Share Button */
+        
+        /* Share button styles */
         .share-container {
             display: flex;
             gap: 10px;
-            margin-top: 10px;
+            margin-top: 15px;
+            justify-content: center;
         }
         
         .share-btn {
-            background: rgba(255, 255, 255, 0.1);
-            border: 1px solid rgba(255, 255, 255, 0.3);
-            color: white;
+            background: #ffcc00;
+            color: #0f0f0f;
             padding: 8px 15px;
-            border-radius: 20px;
+            border-radius: 30px;
+            border: none;
+            font-weight: bold;
             cursor: pointer;
             display: flex;
             align-items: center;
             gap: 5px;
             transition: all 0.3s;
-            font-size: 14px;
         }
         
         .share-btn:hover {
-            background: var(--primary);
-            transform: translateY(-2px);
+            background: #fff;
+            transform: translateY(-3px);
+        }
+        
+        .share-options {
+            display: none;
+            position: absolute;
+            background: rgba(30, 30, 30, 0.95);
+            border-radius: 10px;
+            padding: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+            z-index: 100;
+            bottom: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 200px;
+        }
+        
+        .share-options.show {
+            display: block;
+        }
+        
+        .share-option {
+            padding: 8px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        
+        .share-option:hover {
+            background: rgba(227, 25, 55, 0.3);
+        }
+        
+        /* Player options dropdown */
+        .listen-options {
+            position: relative;
+            display: inline-block;
+        }
+        
+        .options-dropdown {
+            display: none;
+            position: absolute;
+            background: rgba(30, 30, 30, 0.95);
+            min-width: 250px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.5);
+            z-index: 100;
+            border-radius: 10px;
+            overflow: hidden;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            margin-top: 10px;
+        }
+        
+        .options-dropdown.show {
+            display: block;
+        }
+        
+        .option-item {
+            padding: 12px 15px;
+            display: block;
+            color: white;
+            text-decoration: none;
+            transition: background 0.3s;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        .option-item:hover {
+            background: rgba(227, 25, 55, 0.3);
+        }
+        
+        .option-item i {
+            margin-right: 10px;
+            width: 20px;
+            text-align: center;
+        }
+        
+        .dj-name {
+            font-size: 18px;
+            font-weight: bold;
+            margin-top: 10px;
+            color: var(--gold);
+            text-shadow: 0 0 5px rgba(255, 204, 0, 0.7);
+            font-family: 'Orbitron', sans-serif;
         }
 
         /* Navigation */
@@ -842,137 +889,71 @@
         .benefit-card p {
             color: #aaa;
         }
-
-        /* Fan Gallery Section */
-        .gallery-container {
-            margin: 40px 0;
-        }
-
-        .gallery-title {
-            font-size: 2rem;
-            margin-bottom: 20px;
-            color: var(--gold);
-            font-family: 'Orbitron', sans-serif;
-        }
-
-        .gallery-subtitle {
-            color: var(--light);
-            margin-bottom: 30px;
-            max-width: 800px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .gallery-grid {
+        
+        /* Fan Gallery */
+        .fan-gallery {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-            gap: 20px;
+            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+            gap: 15px;
+            margin-top: 30px;
         }
-
-        .gallery-item {
-            border-radius: 15px;
+        
+        .fan-photo {
+            border-radius: 10px;
             overflow: hidden;
-            height: 250px;
+            height: 180px;
             position: relative;
-            cursor: pointer;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-            transition: transform 0.3s;
         }
-
-        .gallery-item:hover {
-            transform: scale(1.03);
-        }
-
-        .gallery-item img {
+        
+        .fan-photo img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            transition: transform 0.5s;
+            transition: transform 0.3s;
         }
-
-        .gallery-item:hover img {
+        
+        .fan-photo:hover img {
             transform: scale(1.1);
         }
-
-        .gallery-overlay {
+        
+        .fan-overlay {
             position: absolute;
             bottom: 0;
             left: 0;
             right: 0;
-            background: rgba(0, 0, 0, 0.7);
-            padding: 15px;
+            background: rgba(0,0,0,0.7);
+            padding: 10px;
             transform: translateY(100%);
             transition: transform 0.3s;
         }
-
-        .gallery-item:hover .gallery-overlay {
+        
+        .fan-photo:hover .fan-overlay {
             transform: translateY(0);
         }
-
-        .gallery-overlay h4 {
+        
+        .fan-overlay h4 {
             color: var(--gold);
             margin-bottom: 5px;
-        }
-
-        .gallery-overlay p {
             font-size: 14px;
-            color: #ddd;
         }
-
-        .photo-submission {
-            background: var(--glass);
-            border-radius: 20px;
-            padding: 30px;
-            margin-top: 50px;
-            text-align: center;
+        
+        .fan-overlay p {
+            color: #ccc;
+            font-size: 12px;
         }
-
-        .photo-submission h3 {
-            font-size: 1.8rem;
-            margin-bottom: 20px;
-            color: var(--gold);
-        }
-
-        .photo-form {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 20px;
-            max-width: 600px;
-            margin: 0 auto;
-        }
-
-        .photo-form input,
-        .photo-form textarea {
+        
+        .submit-photo {
+            margin-top: 20px;
             padding: 15px;
-            border-radius: 10px;
-            border: 1px solid rgba(227, 25, 55, 0.3);
-            background: rgba(0, 0, 0, 0.3);
-            color: white;
-            font-size: 16px;
-        }
-
-        .photo-form textarea {
-            height: 150px;
-            resize: vertical;
-        }
-
-        .photo-form button {
-            background: var(--primary);
-            color: white;
-            border: none;
-            padding: 15px;
-            border-radius: 30px;
-            font-size: 18px;
-            font-weight: bold;
+            border: 2px dashed var(--primary);
+            border-radius: 15px;
+            background: rgba(227, 25, 55, 0.1);
             cursor: pointer;
             transition: all 0.3s;
-            font-family: 'Orbitron', sans-serif;
         }
-
-        .photo-form button:hover {
-            background: var(--gold);
-            color: var(--darker);
-            transform: scale(1.05);
+        
+        .submit-photo:hover {
+            background: rgba(227, 25, 55, 0.2);
         }
 
         /* Contact Page */
@@ -1078,108 +1059,6 @@
             background: var(--gold);
             color: var(--darker);
             box-shadow: 0 0 15px rgba(227, 25, 55, 0.5);
-        }
-
-        /* Listen Options Modal */
-        .modal {
-            display: none;
-            position: fixed;
-            z-index: 2000;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.8);
-        }
-
-        .modal-content {
-            background: var(--darker);
-            margin: 10% auto;
-            padding: 30px;
-            border: 2px solid var(--primary);
-            border-radius: 20px;
-            width: 90%;
-            max-width: 600px;
-            position: relative;
-            animation: modalFade 0.3s;
-        }
-
-        @keyframes modalFade {
-            from {opacity: 0; transform: translateY(-50px);}
-            to {opacity: 1; transform: translateY(0);}
-        }
-
-        .close-modal {
-            color: #aaa;
-            float: right;
-            font-size: 28px;
-            font-weight: bold;
-            cursor: pointer;
-            position: absolute;
-            top: 15px;
-            right: 20px;
-        }
-
-        .close-modal:hover,
-        .close-modal:focus {
-            color: var(--gold);
-            text-decoration: none;
-        }
-
-        .modal-title {
-            color: var(--gold);
-            text-align: center;
-            margin-bottom: 20px;
-            font-size: 2rem;
-        }
-
-        .listen-options {
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-        }
-
-        .option-card {
-            background: rgba(30, 30, 30, 0.7);
-            padding: 20px;
-            border-radius: 15px;
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            border: 1px solid rgba(227, 25, 55, 0.3);
-            transition: all 0.3s;
-        }
-
-        .option-card:hover {
-            background: rgba(227, 25, 55, 0.1);
-            transform: translateX(5px);
-        }
-
-        .option-icon {
-            font-size: 2rem;
-            color: var(--gold);
-        }
-
-        .option-info {
-            flex: 1;
-            text-align: left;
-        }
-
-        .option-name {
-            font-size: 1.2rem;
-            font-weight: bold;
-            color: var(--light);
-            margin-bottom: 5px;
-        }
-
-        .option-link {
-            color: var(--primary-light);
-            text-decoration: none;
-            font-size: 0.9rem;
-        }
-
-        .option-link:hover {
-            text-decoration: underline;
         }
 
         /* Footer */
@@ -1313,10 +1192,6 @@
             .section-title {
                 font-size: 2rem;
             }
-            
-            .gallery-grid {
-                grid-template-columns: 1fr;
-            }
         }
     </style>
 </head>
@@ -1328,32 +1203,63 @@
             <header id="live-header">
                 <div class="header-container">
                     <div class="logo-container">
-                        <img src="https://via.placeholder.com/140" alt="One Love Radio Logo">
+                        <img src="images/logo1.jpg" alt="One Love Radio Logo">
                     </div>
 
                     <div class="radio-info">
                         <div class="station-name">ONE LOVE RADIO</div>
                         <div class="now-playing">Now Playing: <span id="track-title">Zimbabwe's Hottest Hits</span></div>
-                        <div class="listen-container">
+                        <div class="listen-options">
                             <button id="listenBtn">
                                 <i class="fas fa-play"></i> LISTEN LIVE NOW
                             </button>
-                            <div class="share-container">
-                                <button class="share-btn" id="shareBtn">
-                                    <i class="fas fa-share-alt"></i> SHARE
-                                </button>
-                                <button class="share-btn" id="listenOptionsBtn">
-                                    <i class="fas fa-headphones"></i> OPTIONS
-                                </button>
+                            <div class="options-dropdown" id="listenOptions">
+                                <a href="#" class="option-item" data-src="https://altair.streamerr.co/8180/stream">
+                                    <i class="fas fa-radio"></i> One Love Radio
+                                </a>
+                                <a href="#" class="option-item" data-src="https://uk3.internet-radio.com/proxy/263hitradio?mp=/stream">
+                                    <i class="fas fa-globe-europe"></i> Radio UK
+                                </a>
+                                <a href="#" class="option-item" data-src="http://stream.liveradio.ie/263hitradio">
+                                    <i class="fas fa-music"></i> LiveRadio.ie
+                                </a>
+                                <a href="#" class="option-item" data-src="http://onestopradio.co.za:8000/stream">
+                                    <i class="fas fa-headphones"></i> TheOneStopRadio
+                                </a>
+                                <a href="#" class="option-item" data-src="http://stream.263hitradio.com:8000/stream">
+                                    <i class="fas fa-satellite"></i> 263hitradio.com
+                                </a>
+                                <a href="#" class="option-item" data-src="https://stream.263hitradio.com:8443/stream">
+                                    <i class="fas fa-wifi"></i> Radioline (SSL)
+                                </a>
+                            </div>
+                        </div>
+                        <div class="share-container">
+                            <button class="share-btn" id="shareBtn">
+                                <i class="fas fa-share-alt"></i> SHARE
+                            </button>
+                            <div class="share-options" id="shareOptions">
+                                <div class="share-option" data-type="facebook">
+                                    <i class="fab fa-facebook"></i> Facebook
+                                </div>
+                                <div class="share-option" data-type="twitter">
+                                    <i class="fab fa-twitter"></i> Twitter
+                                </div>
+                                <div class="share-option" data-type="whatsapp">
+                                    <i class="fab fa-whatsapp"></i> WhatsApp
+                                </div>
+                                <div class="share-option" data-type="copy">
+                                    <i class="fas fa-copy"></i> Copy Link
+                                </div>
                             </div>
                         </div>
                     </div>
 
                     <div class="dj-player-section">
                         <div class="dj-image">
-                            <img id="djMainImage" src="https://via.placeholder.com/130" alt="Current DJ">
-                            <div class="dj-name" id="djName">DJ Auto</div>
+                            <img id="djMainImage" src="images/dj1.jpg" alt="Current DJ">
                         </div>
+                        <div class="dj-name" id="djName">DJ Jamza</div>
                         <div class="player-controls">
                             <div class="volume-control">
                                 <i class="fas fa-volume-down"></i>
@@ -1366,7 +1272,77 @@
                 </div>
             </header>
         </div>
-        
+        <script>
+            // Detailed DJ schedule with times (day, start, end, dj, show, img)
+            // day: 0=Sunday, 1=Monday, ... 6=Saturday
+            // times in 24-hour format
+            const djSchedule = [
+                [ // Sunday
+                    { start: [0, 0], end: [12, 0], dj: "Dr Oliver Chigariro", show: "Lovers Lounge", img: "images/dj4.jpg" },
+                    { start: [12, 0], end: [23, 59], dj: "263 Gospel Connection", show: "Gospel Show", img: "images/default.jpg" }
+                ],
+                [ // Monday
+                    { start: [18, 0], end: [20, 0], dj: "DJ Jamza", show: "Massive Monday vibes", img: "images/dj1.jpg" }
+                ],
+                [ // Tuesday
+                    { start: [18, 0], end: [20, 0], dj: "Bamdiki Munya WekwaThela", show: "263 Connection", img: "images/dj2.jpg" }
+                ],
+                [ // Wednesday
+                    { start: [18, 0], end: [20, 0], dj: "Steve Ka Sithole Muzite", show: "Nhubu Diaries", img: "images/dj2.jpg" }
+                ],
+                [ // Thursday
+                    { start: [18, 0], end: [20, 0], dj: "Steve Ka Sithole Muzite", show: "Old School Jams", img: "images/dj3.jpg" }
+                ],
+                [ // Friday
+                    { start: [18, 0], end: [20, 0], dj: "Bamdiki Munya WekwaThela", show: "The Weekend Crossover Show", img: "images/dj1.jpg" }
+                ],
+                [ // Saturday
+                    { start: [18, 0], end: [20, 0], dj: "DJ Warren", show: "DJ Mix", img: "images/dj1.jpg" }
+                ]
+            ];
+
+            function getCurrentDJ() {
+                const now = new Date();
+                const day = now.getDay(); // 0-6
+                const hours = now.getHours();
+                const minutes = now.getMinutes();
+                const currentTime = hours * 60 + minutes;
+
+                // If no DJ is scheduled, show Auto DJ
+                if (!djSchedule[day] || djSchedule[day].length === 0) {
+                    return { dj: "Auto DJ", show: "Playing the best hits", img: "images/default.jpg" };
+                }
+
+                // Check each time slot for today
+                for (const slot of djSchedule[day]) {
+                    const startTime = slot.start[0] * 60 + slot.start[1];
+                    const endTime = slot.end[0] * 60 + slot.end[1];
+                    if (currentTime >= startTime && currentTime <= endTime) {
+                        return slot;
+                    }
+                }
+
+                // If no slot matches, show Auto DJ
+                return { dj: "Auto DJ", show: "Playing the best hits", img: "images/default.jpg" };
+            }
+
+            function updateDJImage() {
+                const dj = getCurrentDJ();
+                const img = document.getElementById('djMainImage');
+                const djNameElement = document.getElementById('djName');
+                if (img) {
+                    img.src = dj.img;
+                    img.alt = dj.dj;
+                }
+                if (djNameElement) {
+                    djNameElement.textContent = dj.dj;
+                }
+            }
+
+            // Update on load and every 5 minutes
+            updateDJImage();
+            setInterval(updateDJImage, 5 * 60 * 1000);
+        </script>
         <!-- Navigation -->
         <nav>
             <a href="#" class="nav-link active" data-page="home">Home</a>
@@ -1374,65 +1350,6 @@
             <a href="#" class="nav-link" data-page="fanbase">Fanbase</a>
             <a href="#" class="nav-link" data-page="contact">Contact</a>
         </nav>
-    </div>
-
-    <!-- Listen Options Modal -->
-    <div id="listenModal" class="modal">
-        <div class="modal-content">
-            <span class="close-modal">&times;</span>
-            <h2 class="modal-title">Listen Options</h2>
-            <div class="listen-options">
-                <div class="option-card">
-                    <div class="option-icon">
-                        <i class="fas fa-globe-europe"></i>
-                    </div>
-                    <div class="option-info">
-                        <div class="option-name">Radio UK</div>
-                        <a href="https://radio-uk.co.za/one-love-radio" class="option-link" target="_blank">radio-uk.co.za/one-love-radio</a>
-                    </div>
-                </div>
-                
-                <div class="option-card">
-                    <div class="option-icon">
-                        <i class="fas fa-cloud"></i>
-                    </div>
-                    <div class="option-info">
-                        <div class="option-name">LiveRadio.ie</div>
-                        <a href="https://www.liveradio.ie/stations/one-love-radio" class="option-link" target="_blank">liveradio.ie/stations/one-love-radio</a>
-                    </div>
-                </div>
-                
-                <div class="option-card">
-                    <div class="option-icon">
-                        <i class="fas fa-radio"></i>
-                    </div>
-                    <div class="option-info">
-                        <div class="option-name">TheOneStopRadio</div>
-                        <a href="https://theonestopradio.com/onelove" class="option-link" target="_blank">theonestopradio.com/onelove</a>
-                    </div>
-                </div>
-                
-                <div class="option-card">
-                    <div class="option-icon">
-                        <i class="fas fa-signal"></i>
-                    </div>
-                    <div class="option-info">
-                        <div class="option-name">263hitradio.com</div>
-                        <a href="https://263hitradio.com" class="option-link" target="_blank">263hitradio.com</a>
-                    </div>
-                </div>
-                
-                <div class="option-card">
-                    <div class="option-icon">
-                        <i class="fas fa-stream"></i>
-                    </div>
-                    <div class="option-info">
-                        <div class="option-name">Radioline</div>
-                        <a href="https://www.radioline.co/onelove" class="option-link" target="_blank">radioline.co/onelove</a>
-                    </div>
-                </div>
-            </div>
-        </div>
     </div>
 
     <!-- Player notification -->
@@ -1449,16 +1366,18 @@
 
             <div class="grid">
                 <div class="block">
-                    <img src="https://via.placeholder.com/300x200" alt="One Love Top HITS">
+                    <img src="https://images.unsplash.com/photo-1470225620780-dba8ba36b745?q=80&w=1170&auto=format&fit=crop"
+                        alt="One Love Top HITS">
                     <div class="block-content">
                         <h3>One Love Top HITS</h3>
-                        <p>Submit your favorite hits today and help us create the ultimate playlist!</p>
-                        <a href="#" class="cta" onclick="navigateToPage('fanbase'); return false;">Submit Your Song</a>
+                        <p>Submit your favourite hits today and hear them on air!</p>
+                        <a href="#" class="cta" onclick="navigateToPage('events'); return false;">Submit Now</a>
                     </div>
                 </div>
 
                 <div class="block">
-                    <img src="https://via.placeholder.com/300x200" alt="Upcoming Events">
+                    <img src="https://images.unsplash.com/photo-1540039155733-5bb30b53aa14?q=80&w=1074&auto=format&fit=crop"
+                        alt="Upcoming Events">
                     <div class="block-content">
                         <h3>Upcoming Events</h3>
                         <p>Want your favorite tracks on the air? Check out upcoming events and cast your vote!</p>
@@ -1467,7 +1386,8 @@
                 </div>
 
                 <div class="block">
-                    <img src="https://via.placeholder.com/300x200" alt="DJ Team">
+                    <img src="https://images.unsplash.com/photo-1507838153414-b4b713384a76?q=80&w=1170&auto=format&fit=crop"
+                        alt="DJ Team">
                     <div class="block-content">
                         <h3>Meet the DJs</h3>
                         <p>Get to know our radio hosts. Passionate, fun, and ready to rock your day.</p>
@@ -1476,7 +1396,8 @@
                 </div>
 
                 <div class="block">
-                    <img src="https://via.placeholder.com/300x200" alt="Fanbase">
+                    <img src="https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?q=80&w=1170&auto=format&fit=crop"
+                        alt="Fanbase">
                     <div class="block-content">
                         <h3>Our Fanbase</h3>
                         <p>Join our vibrant community, share your love for music, and connect with other fans!</p>
@@ -1493,57 +1414,48 @@
                             <th>Day</th>
                             <th>Show</th>
                             <th>Host</th>
-                            <th>Time</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
                             <td>Monday</td>
-                            <td>Massive Monday Vibes</td>
+                            <td>Massive Monday vibes</td>
                             <td>DJ Jamza</td>
-                            <td>8AM - 12PM</td>
                         </tr>
                         <tr>
                             <td>Tuesday</td>
                             <td>263 Connection</td>
                             <td>Bamdiki Munya WekwaThela</td>
-                            <td>10AM - 2PM</td>
                         </tr>
                         <tr>
                             <td>Wednesday</td>
                             <td>Nhubu Diaries</td>
                             <td>Steve Ka Sithole Muzite</td>
-                            <td>1PM - 4PM</td>
                         </tr>
                         <tr>
                             <td>Thursday</td>
                             <td>Old School Jams</td>
                             <td>Steve Ka Sithole Muzite</td>
-                            <td>3PM - 7PM</td>
                         </tr>
                         <tr>
                             <td>Friday</td>
                             <td>The Weekend Crossover Show</td>
                             <td>Bamdiki Munya WekwaThela</td>
-                            <td>5PM - 9PM</td>
                         </tr>
                         <tr>
                             <td>Saturday</td>
                             <td>DJ Mix</td>
                             <td>DJ Warren</td>
-                            <td>12PM - 4PM</td>
                         </tr>
                         <tr>
                             <td>Sunday AM</td>
                             <td>Lovers Lounge</td>
                             <td>Dr Oliver Chigariro</td>
-                            <td>9AM - 12PM</td>
                         </tr>
                         <tr>
                             <td>Sunday PM</td>
                             <td>263 Gospel Connection</td>
-                            <td>Auto DJ</td>
-                            <td>1PM - 5PM</td>
+                            <td>Various</td>
                         </tr>
                     </tbody>
                 </table>
@@ -1577,10 +1489,11 @@
             <div class="event-promo glass-card">
             <h2 class="section-title">Upcoming Events</h2>
             <div class="event-banner">
-                <img src="https://via.placeholder.com/800x400" alt="Fusion Band performing live on One Love Radio">
+                <img src="images/fusionband.jpg"
+                alt="Fusion Band performing live on One Love Radio">
             </div>
             <div class="event-banner" style="margin-top:30px;">
-                <img src="https://via.placeholder.com/800x400" alt="263 Hit Radio Meet & Mingle Event">
+                <img src="images/263hitradioevent.jpg" alt="263 Hit Radio Meet & Mingle Event">
             </div>
             <div class="event-details">
                 <h2>🎉 Meet & Mingle - Live Broadcast</h2>
@@ -1596,7 +1509,6 @@
                     <strong>Drink responsibly | Right of admission reserved | No under 18</strong>
                 </p>
                 <p style="color:var(--primary);font-weight:bold;">JOHUSTLEBURG • ONE LOVEFM RADIO</p>
-                <button class="cta" id="registerEventBtn" style="margin-top: 20px;">Register for Event</button>
             </div>
             <div class="event-details">
                 <h2>🎤 Live on One Love Radio</h2>
@@ -1610,7 +1522,6 @@
                 contemporary sounds.</p>
                 <p><strong>Setlist includes:</strong> "African Sunset", "Unity Dance", "Harmony in Harare", and
                 never-before-heard tracks!</p>
-                <button class="cta" id="registerFusionBtn" style="margin-top: 20px;">Register for Event</button>
             </div>
             </div>
 
@@ -1693,6 +1604,146 @@
                     </ul>
                 </div>
             </div>
+
+            <script>
+            (function() {
+                // --- Calendar logic ---
+                const monthNames = [
+                    "January", "February", "March", "April", "May", "June",
+                    "July", "August", "September", "October", "November", "December"
+                ];
+                let calendarDate = new Date();
+                calendarDate.setDate(1);
+
+                const calendarMonthLabel = document.getElementById('calendarMonthLabel');
+                const calendarTableBody = document.getElementById('calendarTableBody');
+                const prevMonthBtn = document.getElementById('prevMonthBtn');
+                const nextMonthBtn = document.getElementById('nextMonthBtn');
+
+                // Dummy event counts for demo (randomized for each month)
+                function getEventCount(day, month, year) {
+                    // Example: Fusion Band event on July 26, 2025
+                    if (year === 2025 && month === 6 && day === 26) return "Fusion Band";
+                    // Otherwise, random events for demo
+                    if (day === 0) return "";
+                    return Math.floor(Math.random() * 10) + 1 + " Events";
+                }
+
+                function renderCalendar(date) {
+                    const year = date.getFullYear();
+                    const month = date.getMonth();
+                    calendarMonthLabel.textContent = `${monthNames[month]} ${year}`;
+
+                    // Get first day of the month (0=Sun, 1=Mon, ...)
+                    const firstDay = new Date(year, month, 1);
+                    // Calendar starts on Monday, so adjust (0=Mon, 6=Sun)
+                    let startDay = firstDay.getDay() - 1;
+                    if (startDay < 0) startDay = 6;
+
+                    const daysInMonth = new Date(year, month + 1, 0).getDate();
+
+                    let html = "";
+                    let day = 1 - startDay;
+                    for (let row = 0; row < 6; row++) {
+                        let tr = "<tr>";
+                        for (let col = 0; col < 7; col++) {
+                            if (day > 0 && day <= daysInMonth) {
+                                let eventCount = getEventCount(day, month, year);
+                                let eventHtml = "";
+                                if (eventCount === "Fusion Band") {
+                                    eventHtml = `<span class="event-count" style="background:#ffcc00;color:#0f0f0f;font-weight:bold;">Fusion Band</span>`;
+                                } else if (eventCount) {
+                                    eventHtml = `<span class="event-count">${eventCount}</span>`;
+                                }
+                                tr += `<td><span class="day-number">${day}</span>${eventHtml}</td>`;
+                            } else {
+                                tr += `<td></td>`;
+                            }
+                            day++;
+                        }
+                        tr += "</tr>";
+                        html += tr;
+                        if (day > daysInMonth) break;
+                    }
+                    calendarTableBody.innerHTML = html;
+
+                    // Add click listeners for each day cell
+                    Array.from(calendarTableBody.querySelectorAll("td")).forEach(td => {
+                        const num = td.querySelector('.day-number');
+                        if (num) {
+                            td.style.cursor = "pointer";
+                            td.onclick = function() {
+                                alert(`Events for ${monthNames[month]} ${num.textContent}, ${year} will be displayed here.`);
+                            };
+                        }
+                    });
+                }
+
+                prevMonthBtn.onclick = function() {
+                    calendarDate.setMonth(calendarDate.getMonth() - 1);
+                    renderCalendar(calendarDate);
+                };
+                nextMonthBtn.onclick = function() {
+                    calendarDate.setMonth(calendarDate.getMonth() + 1);
+                    renderCalendar(calendarDate);
+                };
+
+                // Initial render
+                renderCalendar(calendarDate);
+
+                // --- WhatsApp Event Form logic ---
+                const eventWhatsappForm = document.getElementById('eventWhatsappForm');
+                eventWhatsappForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    const name = document.getElementById('eventName').value.trim();
+                    const email = document.getElementById('eventEmail').value.trim();
+                    const contact = document.getElementById('eventContact').value.trim();
+                    const eventTitle = document.getElementById('eventTitle').value.trim();
+                    const from = document.getElementById('eventFrom').value;
+                    const to = document.getElementById('eventTo').value;
+                    const start = document.getElementById('eventStart').value;
+                    const end = document.getElementById('eventEnd').value;
+                    const location = document.getElementById('eventLocation').value.trim();
+                    const address = document.getElementById('eventAddress').value.trim();
+                    const city = document.getElementById('eventCity').value.trim();
+                    const province = document.getElementById('eventProvince').value.trim();
+                    const price = document.getElementById('eventPrice').value.trim();
+                    const eventContact = document.getElementById('eventEventContact').value.trim();
+                    const description = document.getElementById('eventDescription').value.trim();
+
+                    const message =
+            `📅 *New Event Submission*
+            👤 Name: ${name}
+            📧 Email: ${email}
+            📱 Contact: ${contact}
+
+            🎫 Event: ${eventTitle}
+            🗓️ From: ${from}
+            🗓️ To: ${to}
+            ⏰ Start: ${start}
+            ⏰ End: ${end}
+            📍 Location: ${location}
+            🏠 Address: ${address}
+            🏙️ City: ${city}
+            🏞️ Province: ${province}
+            💵 Price: ${price}
+            ☎️ Event Contact: ${eventContact}
+            📝 Description: ${description}`;
+
+                    // Send to the contact number provided by the user
+                    let number = contact.replace(/\D/g, '');
+                    if (number.startsWith('0')) number = '263' + number.slice(1);
+                    if (!number.startsWith('263') && !number.startsWith('27') && !number.startsWith('44')) {
+                        // fallback to default if not ZW/SA/UK
+                        number = '447850930017';
+                    }
+                    const encodedMsg = encodeURIComponent(message);
+                    const waUrl = `https://wa.me/${number}?text=${encodedMsg}`;
+                    window.open(waUrl, '_blank');
+                });
+            })();
+            </script>
+            </div>
         </section>
 
         <!-- Fanbase Page -->
@@ -1729,58 +1780,59 @@
             </div>
             
             <!-- Fan Gallery Section -->
-            <div class="gallery-container">
-                <h2 class="gallery-title">Fan Zone Gallery</h2>
-                <p class="gallery-subtitle">Check out photos submitted by our amazing fans from events and community gatherings. Share your moments with us!</p>
+            <div class="glass-card">
+                <h2 class="section-title">📸 Fan Photo Gallery</h2>
+                <p>Check out photos submitted by our amazing fans!</p>
                 
-                <div class="gallery-grid">
-                    <div class="gallery-item">
-                        <img src="https://via.placeholder.com/300x300" alt="Fan photo 1">
-                        <div class="gallery-overlay">
-                            <h4>Music Festival 2024</h4>
-                            <p>Submitted by: Sarah K.</p>
+                <div class="fan-gallery">
+                    <div class="fan-photo">
+                        <img src="https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?q=80&w=1287&auto=format&fit=crop" alt="Fan at concert">
+                        <div class="fan-overlay">
+                            <h4>Sarah K.</h4>
+                            <p>One Love Radio Meetup</p>
                         </div>
                     </div>
-                    
-                    <div class="gallery-item">
-                        <img src="https://via.placeholder.com/300x300" alt="Fan photo 2">
-                        <div class="gallery-overlay">
-                            <h4>Radio Meetup</h4>
-                            <p>Submitted by: James T.</p>
+                    <div class="fan-photo">
+                        <img src="https://images.unsplash.com/photo-1514525253161-7a46d19cd819?q=80&w=1374&auto=format&fit=crop" alt="Fan dancing">
+                        <div class="fan-overlay">
+                            <h4>James T.</h4>
+                            <p>Summer Festival</p>
                         </div>
                     </div>
-                    
-                    <div class="gallery-item">
-                        <img src="https://via.placeholder.com/300x300" alt="Fan photo 3">
-                        <div class="gallery-overlay">
-                            <h4>Concert Night</h4>
-                            <p>Submitted by: Lisa M.</p>
+                    <div class="fan-photo">
+                        <img src="https://images.unsplash.com/photo-1501386761578-eac5c94b800a?q=80&w=1470&auto=format&fit=crop" alt="Fan group">
+                        <div class="fan-overlay">
+                            <h4>The M. Family</h4>
+                            <p>Listening Party</p>
                         </div>
                     </div>
-                    
-                    <div class="gallery-item">
-                        <img src="https://via.placeholder.com/300x300" alt="Fan photo 4">
-                        <div class="gallery-overlay">
-                            <h4>Community Event</h4>
-                            <p>Submitted by: David P.</p>
+                    <div class="fan-photo">
+                        <img src="https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?q=80&w=1470&auto=format&fit=crop" alt="Fan with DJ">
+                        <div class="fan-overlay">
+                            <h4>Lisa G.</h4>
+                            <p>Backstage with DJ Jamza</p>
+                        </div>
+                    </div>
+                    <div class="fan-photo">
+                        <img src="https://images.unsplash.com/photo-1468817814611-b7edf94b5d60?q=80&w=1470&auto=format&fit=crop" alt="Fan at home">
+                        <div class="fan-overlay">
+                            <h4>David P.</h4>
+                            <p>Home Listening Setup</p>
+                        </div>
+                    </div>
+                    <div class="fan-photo">
+                        <img src="https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?q=80&w=1470&auto=format&fit=crop" alt="Car listening">
+                        <div class="fan-overlay">
+                            <h4>Mike R.</h4>
+                            <p>Road Trip with One Love</p>
                         </div>
                     </div>
                 </div>
-            </div>
-            
-            <!-- Photo Submission Form -->
-            <div class="photo-submission">
-                <h3>Share Your Moments With Us!</h3>
-                <p>Submit your photos to be featured in our Fan Zone Gallery</p>
                 
-                <form class="photo-form">
-                    <input type="text" placeholder="Your Name" required>
-                    <input type="email" placeholder="Your Email" required>
-                    <input type="text" placeholder="Photo Title" required>
-                    <textarea placeholder="Tell us about this photo (where it was taken, what event, etc.)" required></textarea>
-                    <input type="file" accept="image/*" required>
-                    <button type="submit">Submit Photo</button>
-                </form>
+                <div class="submit-photo" id="submitPhoto">
+                    <h3><i class="fas fa-camera"></i> Submit Your Photo</h3>
+                    <p>Click here to share your photos with the One Love community</p>
+                </div>
             </div>
             
             <div class="join-fanbase-section">
@@ -1824,22 +1876,22 @@
             <h2 class="section-title">🎧 Meet the DJs</h2>
             <div class="dj-grid">
                 <div class="dj-card">
-                <img src="https://via.placeholder.com/300x300" alt="DJ Jamza">
+                <img src="images/dj1.jpg" alt="DJ Jamza">
                 <h3>DJ Jamza</h3>
                 <p>Monday & Saturday</p>
                 </div>
                 <div class="dj-card">
-                <img src="https://via.placeholder.com/300x300" alt="Steve Ka Sithole">
+                <img src="images/dj2.jpg" alt="Steve Ka Sithole">
                 <h3>DJ Steve Ka Sithole</h3>
                 <p>Wednesday</p>
                 </div>
                 <div class="dj-card">
-                <img src="https://via.placeholder.com/300x300" alt="DJ Bamdiki Munya wekwaThela">
+                <img src="images/dj3.jpg" alt="DJ Bamdiki Munya wekwaThela">
                 <h3>DJ Bamdiki Munya wekwaThela</h3>
                 <p>Thursday</p>
                 </div>
                 <div class="dj-card">
-                <img src="https://via.placeholder.com/300x300" alt="DJ Oliver Chigariro">
+                <img src="images/dj4.jpg" alt="DJ Oliver Chigariro">
                 <h3>DJ Oliver Chigariro</h3>
                 <p>Sunday</p>
                 </div>
@@ -1902,8 +1954,36 @@
                     DJ application submitted successfully! Our team will contact you soon.
                 </div>
             </div>
-        </section>
-    </div>
+            </section>
+            </div>
+            <script>
+            // DJ Application Form Handler with WhatsApp integration
+            document.addEventListener('DOMContentLoaded', function () {
+                const djForm = document.getElementById('djApplicationForm');
+                const djFormSuccess = document.getElementById('djFormSuccess');
+                if (djForm) {
+                    djForm.addEventListener('submit', function (e) {
+                        e.preventDefault();
+                        const name = document.getElementById('djName').value.trim();
+                        const email = document.getElementById('djEmail').value.trim();
+                        const socials = document.getElementById('djSocials').value.trim();
+
+                        const message =
+            `🎧 *New DJ Application*
+            👤 Name: ${name}
+            📧 Email: ${email}
+            🔗 Socials: ${socials ? socials : 'N/A'}`;
+
+                        const encodedMsg = encodeURIComponent(message);
+                        const waUrl = `https://wa.me/27835055714?text=${encodedMsg}`;
+                        window.open(waUrl, '_blank');
+
+                        djForm.style.display = 'none';
+                        djFormSuccess.style.display = 'block';
+                    });
+                }
+            });
+            </script>
 
     <footer>
         <p>&copy; 2025 One Love Radio. All rights reserved.</p>
@@ -1922,17 +2002,13 @@
         const navLinks = document.querySelectorAll('.nav-link');
         const pageSections = document.querySelectorAll('.page-section');
         const listenBtn = document.getElementById('listenBtn');
+        const listenOptions = document.getElementById('listenOptions');
         const volumeControl = document.getElementById('volumeControl');
         const trackTitle = document.getElementById('track-title');
         const whatsappForm = document.getElementById('whatsappForm');
-        const djImage = document.getElementById('djMainImage');
-        const djNameElement = document.getElementById('djName');
         const shareBtn = document.getElementById('shareBtn');
-        const listenOptionsBtn = document.getElementById('listenOptionsBtn');
-        const modal = document.getElementById('listenModal');
-        const closeModal = document.querySelector('.close-modal');
-        const registerEventBtn = document.getElementById('registerEventBtn');
-        const registerFusionBtn = document.getElementById('registerFusionBtn');
+        const shareOptions = document.getElementById('shareOptions');
+        const submitPhoto = document.getElementById('submitPhoto');
 
         // Player state
         let isPlaying = false;
@@ -1940,113 +2016,6 @@
 
         // Set initial volume
         player.volume = currentVolume;
-
-        // DJ schedule with time ranges
-        const djSchedule = [
-            { // Sunday
-                shows: [
-                    { name: "Dr Oliver Chigariro", img: "https://via.placeholder.com/130", time: [9, 12] }, // 9AM-12PM
-                    { name: "Auto DJ", img: "https://via.placeholder.com/130?text=Auto+DJ", time: [13, 17] } // 1PM-5PM
-                ]
-            },
-            { // Monday
-                shows: [
-                    { name: "DJ Jamza", img: "https://via.placeholder.com/130", time: [8, 12] } // 8AM-12PM
-                ]
-            },
-            { // Tuesday
-                shows: [
-                    { name: "Bamdiki Munya WekwaThela", img: "https://via.placeholder.com/130", time: [10, 14] } // 10AM-2PM
-                ]
-            },
-            { // Wednesday
-                shows: [
-                    { name: "Steve Ka Sithole Muzite", img: "https://via.placeholder.com/130", time: [13, 16] } // 1PM-4PM
-                ]
-            },
-            { // Thursday
-                shows: [
-                    { name: "Steve Ka Sithole Muzite", img: "https://via.placeholder.com/130", time: [15, 19] } // 3PM-7PM
-                ]
-            },
-            { // Friday
-                shows: [
-                    { name: "Bamdiki Munya WekwaThela", img: "https://via.placeholder.com/130", time: [17, 21] } // 5PM-9PM
-                ]
-            },
-            { // Saturday
-                shows: [
-                    { name: "DJ Warren", img: "https://via.placeholder.com/130", time: [12, 16] } // 12PM-4PM
-                ]
-            }
-        ];
-
-        // Update DJ image based on current time and day
-        function updateDJImage() {
-            const now = new Date();
-            const day = now.getDay(); // 0 = Sunday, 1 = Monday, etc.
-            const hour = now.getHours();
-            const daySchedule = djSchedule[day];
-            
-            let currentShow = { name: "Auto DJ", img: "https://via.placeholder.com/130?text=Auto+DJ" };
-            
-            if (daySchedule) {
-                for (const show of daySchedule.shows) {
-                    if (hour >= show.time[0] && hour < show.time[1]) {
-                        currentShow = show;
-                        break;
-                    }
-                }
-            }
-            
-            djImage.src = currentShow.img;
-            djImage.alt = currentShow.name;
-            djNameElement.textContent = currentShow.name;
-        }
-
-        // Update on load and every 5 minutes
-        updateDJImage();
-        setInterval(updateDJImage, 5 * 60 * 1000);
-
-        // Share functionality
-        shareBtn.addEventListener('click', function() {
-            if (navigator.share) {
-                navigator.share({
-                    title: 'One Love Radio',
-                    text: 'Listen to One Love Radio - Zimbabwean Hits!',
-                    url: window.location.href
-                })
-                .catch(console.error);
-            } else {
-                // Fallback: copy to clipboard
-                navigator.clipboard.writeText(window.location.href);
-                alert('Link copied to clipboard!');
-            }
-        });
-
-        // Listen options modal
-        listenOptionsBtn.addEventListener('click', function() {
-            modal.style.display = "block";
-        });
-
-        closeModal.addEventListener('click', function() {
-            modal.style.display = "none";
-        });
-
-        window.addEventListener('click', function(event) {
-            if (event.target === modal) {
-                modal.style.display = "none";
-            }
-        });
-
-        // Event registration
-        registerEventBtn.addEventListener('click', function() {
-            alert("Registration form for Meet & Mingle event will open here.");
-        });
-
-        registerFusionBtn.addEventListener('click', function() {
-            alert("Registration form for Fusion Band event will open here.");
-        });
 
         // Update player UI
         function updatePlayerUI(playing) {
@@ -2116,10 +2085,109 @@
             // Scroll to top
             window.scrollTo(0, 0);
         }
+        
+        // Share functionality
+        function shareRadio() {
+            const url = window.location.href;
+            const title = "One Love Radio";
+            const text = "Listen to the best music on One Love Radio!";
+            
+            if (navigator.share) {
+                navigator.share({
+                    title: title,
+                    text: text,
+                    url: url
+                }).then(() => {
+                    console.log('Thanks for sharing!');
+                })
+                .catch(console.error);
+            } else {
+                // Fallback for browsers that don't support Web Share API
+                navigator.clipboard.writeText(url).then(() => {
+                    alert('Link copied to clipboard!');
+                });
+            }
+        }
+        
+        // Photo submission
+        function submitFanPhoto() {
+            alert("To submit your photo, please send it to us on WhatsApp at +27835055714 with the hashtag #OneLoveFan");
+        }
 
         // Event listeners
         listenBtn.addEventListener('click', togglePlay);
         volumeControl.addEventListener('input', updateVolume);
+        
+        // Listen options dropdown
+        listenBtn.addEventListener('click', function(e) {
+            e.stopPropagation();
+            listenOptions.classList.toggle('show');
+        });
+        
+        // Close dropdown when clicking outside
+        document.addEventListener('click', function(e) {
+            if (!e.target.closest('.listen-options')) {
+                listenOptions.classList.remove('show');
+            }
+        });
+        
+        // Listen to dropdown links
+        document.querySelectorAll('.option-item').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const src = this.getAttribute('data-src');
+                player.src = src;
+                player.play().then(() => {
+                    updatePlayerUI(true);
+                    showNotification();
+                    listenOptions.classList.remove('show');
+                });
+            });
+        });
+        
+        // Share button functionality
+        shareBtn.addEventListener('click', function(e) {
+            e.stopPropagation();
+            shareOptions.classList.toggle('show');
+        });
+        
+        // Share options
+        document.querySelectorAll('.share-option').forEach(option => {
+            option.addEventListener('click', function() {
+                const type = this.getAttribute('data-type');
+                const url = window.location.href;
+                const text = "Check out One Love Radio - the best music streaming service!";
+                
+                switch(type) {
+                    case 'facebook':
+                        window.open(`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}`, '_blank');
+                        break;
+                    case 'twitter':
+                        window.open(`https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}&url=${encodeURIComponent(url)}`, '_blank');
+                        break;
+                    case 'whatsapp':
+                        window.open(`https://wa.me/?text=${encodeURIComponent(text + " " + url)}`, '_blank');
+                        break;
+                    case 'copy':
+                        navigator.clipboard.writeText(url).then(() => {
+                            alert('Link copied to clipboard!');
+                        });
+                        break;
+                }
+                
+                shareOptions.classList.remove('show');
+            });
+        });
+        
+        // Close share options when clicking outside
+        document.addEventListener('click', function(e) {
+            if (!e.target.closest('.share-container')) {
+                shareOptions.classList.remove('show');
+            }
+        });
+        
+        // Photo submission
+        submitPhoto.addEventListener('click', submitFanPhoto);
 
         navLinks.forEach(link => {
             link.addEventListener('click', (e) => {
@@ -2137,88 +2205,36 @@
             const initialPage = validPages.includes(hash) ? hash : 'home';
             navigateToPage(initialPage);
 
-            // Calendar logic
-            const monthNames = [
-                "January", "February", "March", "April", "May", "June",
-                "July", "August", "September", "October", "November", "December"
-            ];
-            let calendarDate = new Date();
-            calendarDate.setDate(1);
-
-            const calendarMonthLabel = document.getElementById('calendarMonthLabel');
-            const calendarTableBody = document.getElementById('calendarTableBody');
-            const prevMonthBtn = document.getElementById('prevMonthBtn');
-            const nextMonthBtn = document.getElementById('nextMonthBtn');
-
-            function getEventCount(day, month, year) {
-                // Example: Fusion Band event on July 26, 2025
-                if (year === 2025 && month === 6 && day === 26) return "Fusion Band";
-                // Otherwise, random events for demo
-                if (day === 0) return "";
-                return Math.floor(Math.random() * 10) + 1 + " Events";
-            }
-
-            function renderCalendar(date) {
-                const year = date.getFullYear();
-                const month = date.getMonth();
-                calendarMonthLabel.textContent = `${monthNames[month]} ${year}`;
-
-                // Get first day of the month (0=Sun, 1=Mon, ...)
-                const firstDay = new Date(year, month, 1);
-                // Calendar starts on Monday, so adjust (0=Mon, 6=Sun)
-                let startDay = firstDay.getDay() - 1;
-                if (startDay < 0) startDay = 6;
-
-                const daysInMonth = new Date(year, month + 1, 0).getDate();
-
-                let html = "";
-                let day = 1 - startDay;
-                for (let row = 0; row < 6; row++) {
-                    let tr = "<tr>";
-                    for (let col = 0; col < 7; col++) {
-                        if (day > 0 && day <= daysInMonth) {
-                            let eventCount = getEventCount(day, month, year);
-                            let eventHtml = "";
-                            if (eventCount === "Fusion Band") {
-                                eventHtml = `<span class="event-count" style="background:#ffcc00;color:#0f0f0f;font-weight:bold;">Fusion Band</span>`;
-                            } else if (eventCount) {
-                                eventHtml = `<span class="event-count">${eventCount}</span>`;
-                            }
-                            tr += `<td><span class="day-number">${day}</span>${eventHtml}</td>`;
-                        } else {
-                            tr += `<td></td>`;
-                        }
-                        day++;
-                    }
-                    tr += "</tr>";
-                    html += tr;
-                    if (day > daysInMonth) break;
-                }
-                calendarTableBody.innerHTML = html;
-
-                // Add click listeners for each day cell
-                Array.from(calendarTableBody.querySelectorAll("td")).forEach(td => {
-                    const num = td.querySelector('.day-number');
-                    if (num) {
-                        td.style.cursor = "pointer";
-                        td.onclick = function() {
-                            alert(`Events for ${monthNames[month]} ${num.textContent}, ${year} will be displayed here.`);
-                        };
-                    }
+            // Add event listeners to calendar cells
+            const calendarCells = document.querySelectorAll('.calendar-table td');
+            calendarCells.forEach(cell => {
+                cell.addEventListener('click', function () {
+                    const day = this.querySelector('.day-number').textContent;
+                    alert(`Events for May ${day}, 2025 will be displayed here.`);
                 });
-            }
+            });
 
-            prevMonthBtn.onclick = function() {
-                calendarDate.setMonth(calendarDate.getMonth() - 1);
-                renderCalendar(calendarDate);
-            };
-            nextMonthBtn.onclick = function() {
-                calendarDate.setMonth(calendarDate.getMonth() + 1);
-                renderCalendar(calendarDate);
-            };
+            // Form submission handlers
+            document.querySelector('.dj-form').addEventListener('submit', function (e) {
+                e.preventDefault();
+                alert('DJ application submitted successfully! Our team will contact you soon.');
+                this.reset();
+            });
 
-            // Initial render
-            renderCalendar(calendarDate);
+            // WhatsApp form handler
+            whatsappForm.addEventListener('submit', function (e) {
+                e.preventDefault();
+
+                const name = document.getElementById('name').value.trim();
+                const title = document.getElementById('title').value.trim();
+                const artist = document.getElementById('artist').value.trim();
+
+                const message = `🎵 *New Song Request* 🎵\n\n👤 Name: ${name}\n🎶 Song: ${title}\n🎤 Artist: ${artist}`;
+                const encodedMessage = encodeURIComponent(message);
+                const whatsappURL = `https://wa.me/447850930017?text=${encodedMessage}`;
+
+                window.open(whatsappURL, '_blank');
+            });
 
             // Simulate track title changes
             const tracks = [
