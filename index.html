@@ -47,12 +47,12 @@
 
         /* Combined Header with Navigation */
         .sticky-header {
-            position: relative;
+            position: sticky;
             top: 0;
             z-index: 1000;
             background: linear-gradient(rgba(15, 12, 41, 0.95), 
              rgba(48, 43, 99, 0.8)), 
-             url('images/microphone.jpg') center/cover no-repeat;
+             url('https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?q=80&w=1170&auto=format&fit=crop') center/cover no-repeat;
             backdrop-filter: blur(10px);
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
             border-bottom: 4px solid var(--primary);
@@ -504,12 +504,14 @@
             min-height: 400px;
             display: flex;
             flex-direction: column;
+            transform: perspective(1000px) rotateX(0) rotateY(0);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
         .block:hover {
             border-color: var(--primary);
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(227, 25, 55, 0.3);
+            transform: translateY(-5px) perspective(1000px) rotateX(5deg) rotateY(5deg);
+            box-shadow: 0 20px 30px rgba(227, 25, 55, 0.4);
         }
 
         .block img {
@@ -551,6 +553,8 @@
             font-family: 'Orbitron', sans-serif;
             letter-spacing: 1px;
             border: 2px solid transparent;
+            position: relative;
+            overflow: hidden;
         }
 
         .cta:hover {
@@ -558,6 +562,23 @@
             color: var(--primary);
             border-color: var(--primary);
             transform: scale(1.05);
+        }
+
+        .cta::after {
+            content: "";
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: rgba(255, 255, 255, 0.1);
+            transform: rotate(30deg);
+            transition: all 0.6s;
+            pointer-events: none;
+        }
+
+        .cta:hover::after {
+            transform: rotate(30deg) translate(20%, 20%);
         }
 
         /* Events Page */
@@ -572,6 +593,11 @@
             border-radius: 20px;
             border: 3px solid var(--primary);
             margin-bottom: 20px;
+            transition: transform 0.5s ease;
+        }
+
+        .event-banner img:hover {
+            transform: scale(1.02);
         }
 
         .event-details h2 {
@@ -604,20 +630,27 @@
             font-family: 'Orbitron', sans-serif;
             font-weight: bold;
             transition: all 0.3s;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.3);
         }
 
         .month-nav button:hover {
             background: var(--gold);
             color: var(--darker);
+            transform: translateY(-2px);
+        }
+
+        .calendar-container {
+            overflow-x: auto;
+            border-radius: 15px;
+            border: 1px solid rgba(227, 25, 55, 0.3);
+            margin-bottom: 20px;
         }
 
         .calendar-table {
             width: 100%;
             border-collapse: collapse;
             background: var(--glass);
-            border-radius: 15px;
-            overflow: hidden;
-            border: 1px solid rgba(227, 25, 55, 0.3);
+            min-width: 700px;
         }
 
         .calendar-table th {
@@ -703,6 +736,14 @@
             background: rgba(0, 0, 0, 0.3);
             color: var(--light);
             font-size: 1rem;
+            transition: all 0.3s;
+        }
+
+        .event-form input:focus,
+        .event-form textarea:focus {
+            outline: none;
+            border-color: var(--gold);
+            box-shadow: 0 0 10px rgba(255, 204, 0, 0.3);
         }
 
         .event-form input[type="checkbox"] {
@@ -723,6 +764,7 @@
             display: block;
             margin: 20px auto 0;
             font-family: 'Orbitron', sans-serif;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.3);
         }
 
         .event-form button[type="submit"]:hover {
@@ -781,11 +823,12 @@
             backdrop-filter: blur(10px);
             border: 1px solid rgba(227, 25, 55, 0.3);
             transition: all 0.3s;
+            transform: translateY(0);
         }
 
         .testimonial:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(227, 25, 55, 0.3);
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(227, 25, 55, 0.3);
         }
 
         .testimonial img {
@@ -795,6 +838,11 @@
             object-fit: cover;
             margin-bottom: 15px;
             border: 3px solid var(--primary);
+            transition: transform 0.3s ease;
+        }
+
+        .testimonial:hover img {
+            transform: scale(1.1);
         }
 
         .testimonial blockquote {
@@ -846,6 +894,8 @@
             transition: all 0.3s;
             font-size: 1.2rem;
             font-family: 'Orbitron', sans-serif;
+            position: relative;
+            overflow: hidden;
         }
 
         .join-button:hover {
@@ -868,10 +918,11 @@
             text-align: center;
             border: 1px solid rgba(227, 25, 55, 0.3);
             transition: all 0.3s;
+            transform: translateY(0);
         }
 
         .benefit-card:hover {
-            transform: translateY(-5px);
+            transform: translateY(-10px);
             box-shadow: 0 10px 20px rgba(227, 25, 55, 0.3);
         }
 
@@ -903,6 +954,7 @@
             overflow: hidden;
             height: 180px;
             position: relative;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.3);
         }
         
         .fan-photo img {
@@ -972,12 +1024,14 @@
             border: 1px solid rgba(227, 25, 55, 0.3);
             transition: all 0.3s;
             position: relative;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+            transform: perspective(1000px) rotateX(0) rotateY(0);
         }
 
         .dj-card:hover {
             border-color: var(--primary);
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(227, 25, 55, 0.3);
+            transform: translateY(-5px) perspective(1000px) rotateX(5deg) rotateY(5deg);
+            box-shadow: 0 15px 30px rgba(227, 25, 55, 0.4);
         }
 
         .dj-card img {
@@ -1016,11 +1070,13 @@
             display: flex;
             flex-direction: column;
             align-items: center;
+            transform: translateY(0);
         }
 
         .contact-card:hover {
             border-color: var(--primary);
             transform: scale(1.03);
+            box-shadow: 0 10px 20px rgba(227, 25, 55, 0.3);
         }
 
         .contact-icon {
@@ -1053,6 +1109,8 @@
             transition: all 0.3s;
             font-family: 'Orbitron', sans-serif;
             letter-spacing: 1px;
+            position: relative;
+            overflow: hidden;
         }
 
         .contact-btn:hover {
@@ -1129,6 +1187,137 @@
             to { transform: translateX(-150%); }
         }
 
+        /* Mobile Navigation */
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            z-index: 1001;
+        }
+
+        .mobile-nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(15, 12, 41, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            transform: translateX(100%);
+            transition: transform 0.3s ease;
+        }
+
+        .mobile-nav.active {
+            transform: translateX(0);
+        }
+
+        .mobile-nav a {
+            color: white;
+            text-decoration: none;
+            font-size: 1.5rem;
+            padding: 15px;
+            margin: 10px 0;
+            width: 100%;
+            text-align: center;
+            transition: all 0.3s;
+        }
+
+        .mobile-nav a:hover {
+            background: rgba(227, 25, 55, 0.3);
+        }
+
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.8);
+            z-index: 2000;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-content {
+            background: var(--glass);
+            padding: 30px;
+            border-radius: 20px;
+            max-width: 500px;
+            width: 90%;
+            position: relative;
+            transform: scale(0.9);
+            opacity: 0;
+            animation: modalAppear 0.3s forwards;
+        }
+
+        @keyframes modalAppear {
+            to {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            font-size: 1.5rem;
+            color: white;
+            cursor: pointer;
+            background: none;
+            border: none;
+        }
+
+        .modal-title {
+            color: var(--gold);
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .modal-form {
+            display: grid;
+            gap: 15px;
+        }
+
+        .modal-form input {
+            padding: 12px;
+            border-radius: 8px;
+            border: 1px solid rgba(227, 25, 55, 0.3);
+            background: rgba(0, 0, 0, 0.3);
+            color: var(--light);
+            font-size: 1rem;
+        }
+
+        .modal-form button {
+            background: var(--primary);
+            color: var(--light);
+            border: none;
+            padding: 12px 25px;
+            border-radius: 30px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s;
+            margin-top: 10px;
+        }
+
+        .modal-form button:hover {
+            background: var(--gold);
+            color: var(--darker);
+        }
+
         /* Animations */
         @keyframes pulse {
             0% { transform: scale(1); }
@@ -1156,6 +1345,7 @@
             nav {
                 padding: 10px;
                 flex-wrap: wrap;
+                display: none;
             }
 
             nav a {
@@ -1163,6 +1353,10 @@
                 font-size: 13px;
                 flex: 1;
                 text-align: center;
+            }
+
+            .mobile-menu-btn {
+                display: block;
             }
         }
 
@@ -1192,18 +1386,39 @@
             .section-title {
                 font-size: 2rem;
             }
+            
+            .radio-info {
+                margin-top: 50px;
+            }
+            
+            .sticky-header {
+                min-height: 250px;
+            }
         }
     </style>
 </head>
 
 <body>
+    <!-- Mobile Navigation Button -->
+    <button class="mobile-menu-btn" id="mobileMenuBtn">
+        <i class="fas fa-bars"></i>
+    </button>
+
+    <!-- Mobile Navigation Menu -->
+    <div class="mobile-nav" id="mobileNav">
+        <a href="#" class="nav-link active" data-page="home">Home</a>
+        <a href="#" class="nav-link" data-page="events">Events</a>
+        <a href="#" class="nav-link" data-page="fanbase">Fanbase</a>
+        <a href="#" class="nav-link" data-page="contact">Contact</a>
+    </div>
+
     <!-- Combined Header with Navigation -->
     <div class="sticky-header">
         <div class="header-content">
             <header id="live-header">
                 <div class="header-container">
                     <div class="logo-container">
-                        <img src="images/logo1.jpg" alt="One Love Radio Logo">
+                        <img src="https://images.unsplash.com/photo-1494232410401-ad00d5433cfa?q=80&w=1170&auto=format&fit=crop" alt="One Love Radio Logo">
                     </div>
 
                     <div class="radio-info">
@@ -1257,7 +1472,7 @@
 
                     <div class="dj-player-section">
                         <div class="dj-image">
-                            <img id="djMainImage" src="images/dj1.jpg" alt="Current DJ">
+                            <img id="djMainImage" src="https://images.unsplash.com/photo-1519892300165-cb5542fb47c7?q=80&w=1170&auto=format&fit=crop" alt="Current DJ">
                         </div>
                         <div class="dj-name" id="djName">DJ Jamza</div>
                         <div class="player-controls">
@@ -1278,26 +1493,26 @@
             // times in 24-hour format
             const djSchedule = [
                 [ // Sunday
-                    { start: [0, 0], end: [12, 0], dj: "Dr Oliver Chigariro", show: "Lovers Lounge", img: "images/dj4.jpg" },
-                    { start: [12, 0], end: [23, 59], dj: "263 Gospel Connection", show: "Gospel Show", img: "images/default.jpg" }
+                    { start: [0, 0], end: [12, 0], dj: "Dr Oliver Chigariro", show: "Lovers Lounge", img: "https://images.unsplash.com/photo-1581833971358-2c8b550f87b3?q=80&w=1171&auto=format&fit=crop" },
+                    { start: [12, 0], end: [23, 59], dj: "Auto DJ", show: "Playing the best hits", img: "https://images.unsplash.com/photo-1519892300165-cb5542fb47c7?q=80&w=1170&auto=format&fit=crop" }
                 ],
                 [ // Monday
-                    { start: [18, 0], end: [20, 0], dj: "DJ Jamza", show: "Massive Monday vibes", img: "images/dj1.jpg" }
+                    { start: [18, 0], end: [20, 0], dj: "DJ Jamza", show: "Massive Monday vibes", img: "https://images.unsplash.com/photo-1507838153414-b4b713384a76?q=80&w=1170&auto=format&fit=crop" }
                 ],
                 [ // Tuesday
-                    { start: [18, 0], end: [20, 0], dj: "Bamdiki Munya WekwaThela", show: "263 Connection", img: "images/dj2.jpg" }
+                    { start: [18, 0], end: [20, 0], dj: "Bamdiki Munya WekwaThela", show: "263 Connection", img: "https://images.unsplash.com/photo-1468164016595-6108e4c60c8b?q=80&w=1170&auto=format&fit=crop" }
                 ],
                 [ // Wednesday
-                    { start: [18, 0], end: [20, 0], dj: "Steve Ka Sithole Muzite", show: "Nhubu Diaries", img: "images/dj2.jpg" }
+                    { start: [18, 0], end: [20, 0], dj: "Steve Ka Sithole Muzite", show: "Nhubu Diaries", img: "https://images.unsplash.com/photo-1589405858884-20e142cc7a14?q=80&w=1170&auto=format&fit=crop" }
                 ],
                 [ // Thursday
-                    { start: [18, 0], end: [20, 0], dj: "Steve Ka Sithole Muzite", show: "Old School Jams", img: "images/dj3.jpg" }
+                    { start: [18, 0], end: [20, 0], dj: "Steve Ka Sithole Muzite", show: "Old School Jams", img: "https://images.unsplash.com/photo-1589405858884-20e142cc7a14?q=80&w=1170&auto=format&fit=crop" }
                 ],
                 [ // Friday
-                    { start: [18, 0], end: [20, 0], dj: "Bamdiki Munya WekwaThela", show: "The Weekend Crossover Show", img: "images/dj1.jpg" }
+                    { start: [18, 0], end: [20, 0], dj: "Bamdiki Munya WekwaThela", show: "The Weekend Crossover Show", img: "https://images.unsplash.com/photo-1468164016595-6108e4c60c8b?q=80&w=1170&auto=format&fit=crop" }
                 ],
                 [ // Saturday
-                    { start: [18, 0], end: [20, 0], dj: "DJ Warren", show: "DJ Mix", img: "images/dj1.jpg" }
+                    { start: [18, 0], end: [20, 0], dj: "DJ Warren", show: "DJ Mix", img: "https://images.unsplash.com/photo-1507838153414-b4b713384a76?q=80&w=1170&auto=format&fit=crop" }
                 ]
             ];
 
@@ -1310,7 +1525,7 @@
 
                 // If no DJ is scheduled, show Auto DJ
                 if (!djSchedule[day] || djSchedule[day].length === 0) {
-                    return { dj: "Auto DJ", show: "Playing the best hits", img: "images/default.jpg" };
+                    return { dj: "Auto DJ", show: "Playing the best hits", img: "https://images.unsplash.com/photo-1519892300165-cb5542fb47c7?q=80&w=1170&auto=format&fit=crop" };
                 }
 
                 // Check each time slot for today
@@ -1323,7 +1538,7 @@
                 }
 
                 // If no slot matches, show Auto DJ
-                return { dj: "Auto DJ", show: "Playing the best hits", img: "images/default.jpg" };
+                return { dj: "Auto DJ", show: "Playing the best hits", img: "https://images.unsplash.com/photo-1519892300165-cb5542fb47c7?q=80&w=1170&auto=format&fit=crop" };
             }
 
             function updateDJImage() {
@@ -1350,6 +1565,36 @@
             <a href="#" class="nav-link" data-page="fanbase">Fanbase</a>
             <a href="#" class="nav-link" data-page="contact">Contact</a>
         </nav>
+    </div>
+
+    <!-- Registration Modal -->
+    <div class="modal" id="registrationModal">
+        <div class="modal-content">
+            <button class="close-modal" id="closeModal">&times;</button>
+            <h2 class="modal-title">Register for Event</h2>
+            <form class="modal-form" id="eventRegistrationForm">
+                <input type="text" placeholder="First Name" required>
+                <input type="text" placeholder="Last Name" required>
+                <input type="tel" placeholder="Phone Number" required>
+                <input type="email" placeholder="Email" required>
+                <button type="submit">Submit via WhatsApp</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- DJ Application Modal -->
+    <div class="modal" id="djApplicationModal">
+        <div class="modal-content">
+            <button class="close-modal" id="closeDjModal">&times;</button>
+            <h2 class="modal-title">DJ Application Form</h2>
+            <form class="modal-form" id="djApplicationForm">
+                <input type="text" placeholder="Full Name" required>
+                <input type="tel" placeholder="Phone Number" required>
+                <input type="email" placeholder="Email" required>
+                <input type="text" placeholder="Experience" required>
+                <button type="submit">Submit Application</button>
+            </form>
+        </div>
     </div>
 
     <!-- Player notification -->
@@ -1381,7 +1626,7 @@
                     <div class="block-content">
                         <h3>Upcoming Events</h3>
                         <p>Want your favorite tracks on the air? Check out upcoming events and cast your vote!</p>
-                        <a href="#" class="cta" onclick="navigateToPage('events'); return false;">Go to Events</a>
+                        <button class="cta" id="registerEventBtn">Register Now</button>
                     </div>
                 </div>
 
@@ -1489,11 +1734,11 @@
             <div class="event-promo glass-card">
             <h2 class="section-title">Upcoming Events</h2>
             <div class="event-banner">
-                <img src="images/fusionband.jpg"
+                <img src="https://images.unsplash.com/photo-1501281668745-f7f57925c3b4?q=80&w=1170&auto=format&fit=crop"
                 alt="Fusion Band performing live on One Love Radio">
             </div>
             <div class="event-banner" style="margin-top:30px;">
-                <img src="images/263hitradioevent.jpg" alt="263 Hit Radio Meet & Mingle Event">
+                <img src="https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?q=80&w=1170&auto=format&fit=crop" alt="263 Hit Radio Meet & Mingle Event">
             </div>
             <div class="event-details">
                 <h2>🎉 Meet & Mingle - Live Broadcast</h2>
@@ -1534,22 +1779,24 @@
                         <button id="nextMonthBtn">&gt;&gt;</button>
                     </div>
                 </div>
-                <table class="calendar-table">
-                    <thead>
-                        <tr>
-                            <th>Monday</th>
-                            <th>Tuesday</th>
-                            <th>Wednesday</th>
-                            <th>Thursday</th>
-                            <th>Friday</th>
-                            <th>Saturday</th>
-                            <th>Sunday</th>
-                        </tr>
-                    </thead>
-                    <tbody id="calendarTableBody">
-                        <!-- Calendar rows will be generated by JS -->
-                    </tbody>
-                </table>
+                <div class="calendar-container">
+                    <table class="calendar-table">
+                        <thead>
+                            <tr>
+                                <th>Monday</th>
+                                <th>Tuesday</th>
+                                <th>Wednesday</th>
+                                <th>Thursday</th>
+                                <th>Friday</th>
+                                <th>Saturday</th>
+                                <th>Sunday</th>
+                            </tr>
+                        </thead>
+                        <tbody id="calendarTableBody">
+                            <!-- Calendar rows will be generated by JS -->
+                        </tbody>
+                    </table>
+                </div>
             </div>
                     
             <div class="event-form">
@@ -1876,22 +2123,22 @@
             <h2 class="section-title">🎧 Meet the DJs</h2>
             <div class="dj-grid">
                 <div class="dj-card">
-                <img src="images/dj1.jpg" alt="DJ Jamza">
+                <img src="https://images.unsplash.com/photo-1507838153414-b4b713384a76?q=80&w=1170&auto=format&fit=crop" alt="DJ Jamza">
                 <h3>DJ Jamza</h3>
                 <p>Monday & Saturday</p>
                 </div>
                 <div class="dj-card">
-                <img src="images/dj2.jpg" alt="Steve Ka Sithole">
+                <img src="https://images.unsplash.com/photo-1468164016595-6108e4c60c8b?q=80&w=1170&auto=format&fit=crop" alt="Steve Ka Sithole">
                 <h3>DJ Steve Ka Sithole</h3>
                 <p>Wednesday</p>
                 </div>
                 <div class="dj-card">
-                <img src="images/dj3.jpg" alt="DJ Bamdiki Munya wekwaThela">
+                <img src="https://images.unsplash.com/photo-1589405858884-20e142cc7a14?q=80&w=1170&auto=format&fit=crop" alt="DJ Bamdiki Munya wekwaThela">
                 <h3>DJ Bamdiki Munya wekwaThela</h3>
                 <p>Thursday</p>
                 </div>
                 <div class="dj-card">
-                <img src="images/dj4.jpg" alt="DJ Oliver Chigariro">
+                <img src="https://images.unsplash.com/photo-1581833971358-2c8b550f87b3?q=80&w=1171&auto=format&fit=crop" alt="DJ Oliver Chigariro">
                 <h3>DJ Oliver Chigariro</h3>
                 <p>Sunday</p>
                 </div>
@@ -1933,58 +2180,10 @@
             <div class="glass-card">
                 <h2 class="section-title">🎤 Join Our DJ Team</h2>
                 <p style="text-align: center; margin-bottom: 25px;">Passionate about music? Apply to become a DJ on One Love Radio!</p>
-                <form class="dj-form" id="djApplicationForm" autocomplete="off">
-                    <div style="display: grid; gap: 20px; margin-bottom: 20px;">
-                        <div>
-                            <label for="djName">Full Name</label>
-                            <input type="text" id="djName" name="djName" placeholder="Enter your full name" required>
-                        </div>
-                        <div>
-                            <label for="djEmail">Email Address</label>
-                            <input type="email" id="djEmail" name="djEmail" placeholder="Enter your email" required>
-                        </div>
-                        <div>
-                            <label for="djSocials">Social Media Links</label>
-                            <textarea id="djSocials" name="djSocials" placeholder="Instagram, Facebook, Mixcloud, etc."></textarea>
-                        </div>
-                    </div>
-                    <button type="submit" class="cta" style="width: 100%;">Submit Application</button>
-                </form>
-                <div id="djFormSuccess" style="display:none; color:var(--gold); text-align:center; margin-top:20px; font-weight:bold;">
-                    DJ application submitted successfully! Our team will contact you soon.
-                </div>
+                <button id="applyDjBtn" class="cta" style="width: 100%;">Apply Now</button>
             </div>
             </section>
             </div>
-            <script>
-            // DJ Application Form Handler with WhatsApp integration
-            document.addEventListener('DOMContentLoaded', function () {
-                const djForm = document.getElementById('djApplicationForm');
-                const djFormSuccess = document.getElementById('djFormSuccess');
-                if (djForm) {
-                    djForm.addEventListener('submit', function (e) {
-                        e.preventDefault();
-                        const name = document.getElementById('djName').value.trim();
-                        const email = document.getElementById('djEmail').value.trim();
-                        const socials = document.getElementById('djSocials').value.trim();
-
-                        const message =
-            `🎧 *New DJ Application*
-            👤 Name: ${name}
-            📧 Email: ${email}
-            🔗 Socials: ${socials ? socials : 'N/A'}`;
-
-                        const encodedMsg = encodeURIComponent(message);
-                        const waUrl = `https://wa.me/27835055714?text=${encodedMsg}`;
-                        window.open(waUrl, '_blank');
-
-                        djForm.style.display = 'none';
-                        djFormSuccess.style.display = 'block';
-                    });
-                }
-            });
-            </script>
-
     <footer>
         <p>&copy; 2025 One Love Radio. All rights reserved.</p>
         <div class="socials">
@@ -2009,6 +2208,16 @@
         const shareBtn = document.getElementById('shareBtn');
         const shareOptions = document.getElementById('shareOptions');
         const submitPhoto = document.getElementById('submitPhoto');
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mobileNav = document.getElementById('mobileNav');
+        const registrationModal = document.getElementById('registrationModal');
+        const closeModal = document.getElementById('closeModal');
+        const eventRegistrationForm = document.getElementById('eventRegistrationForm');
+        const registerEventBtn = document.getElementById('registerEventBtn');
+        const djApplicationModal = document.getElementById('djApplicationModal');
+        const closeDjModal = document.getElementById('closeDjModal');
+        const djApplicationForm = document.getElementById('djApplicationForm');
+        const applyDjBtn = document.getElementById('applyDjBtn');
 
         // Player state
         let isPlaying = false;
@@ -2084,6 +2293,9 @@
 
             // Scroll to top
             window.scrollTo(0, 0);
+            
+            // Close mobile menu if open
+            mobileNav.classList.remove('active');
         }
         
         // Share functionality
@@ -2197,6 +2409,61 @@
             });
         });
 
+        // Mobile menu toggle
+        mobileMenuBtn.addEventListener('click', function() {
+            mobileNav.classList.toggle('active');
+        });
+
+        // Modal functionality
+        registerEventBtn.addEventListener('click', function() {
+            registrationModal.style.display = 'flex';
+        });
+
+        closeModal.addEventListener('click', function() {
+            registrationModal.style.display = 'none';
+        });
+
+        applyDjBtn.addEventListener('click', function() {
+            djApplicationModal.style.display = 'flex';
+        });
+
+        closeDjModal.addEventListener('click', function() {
+            djApplicationModal.style.display = 'none';
+        });
+
+        // Form submission handlers
+        eventRegistrationForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            const formData = new FormData(this);
+            const name = formData.get('name');
+            const phone = formData.get('phone');
+            
+            // Format WhatsApp message
+            const message = `📅 New Event Registration\n\nName: ${name}\nPhone: ${phone}`;
+            const encodedMessage = encodeURIComponent(message);
+            const whatsappURL = `https://wa.me/27835055714?text=${encodedMessage}`;
+            
+            window.open(whatsappURL, '_blank');
+            registrationModal.style.display = 'none';
+        });
+
+        djApplicationForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            const formData = new FormData(this);
+            const name = formData.get('name');
+            const phone = formData.get('phone');
+            const email = formData.get('email');
+            const experience = formData.get('experience');
+            
+            // Format WhatsApp message
+            const message = `🎧 New DJ Application\n\nName: ${name}\nPhone: ${phone}\nEmail: ${email}\nExperience: ${experience}`;
+            const encodedMessage = encodeURIComponent(message);
+            const whatsappURL = `https://wa.me/27835055714?text=${encodedMessage}`;
+            
+            window.open(whatsappURL, '_blank');
+            djApplicationModal.style.display = 'none';
+        });
+
         // Initialize when page loads
         window.addEventListener('DOMContentLoaded', () => {
             // Check URL hash for initial page
@@ -2214,15 +2481,8 @@
                 });
             });
 
-            // Form submission handlers
-            document.querySelector('.dj-form').addEventListener('submit', function (e) {
-                e.preventDefault();
-                alert('DJ application submitted successfully! Our team will contact you soon.');
-                this.reset();
-            });
-
             // WhatsApp form handler
-            whatsappForm.addEventListener('submit', function (e) {
+            whatsappForm.addEventListener('submit', function(e) {
                 e.preventDefault();
 
                 const name = document.getElementById('name').value.trim();
